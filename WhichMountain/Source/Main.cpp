@@ -1,9 +1,10 @@
-#include <Hello.hpp>
+#include <Game/Game.hpp>
 
 int main(int argc, char** argv)
 {
-	Hello hello;
-	hello.Print();
+	Game game;
+
+	game.Run();
 
 	return 0;
 }
