@@ -29,10 +29,14 @@ namespace engine
 
 	void Window::ProcessEvents()
 	{
+		m_events.clear();
+
 		SDL_Event e;
 
 		while (SDL_PollEvent(&e))
 		{
+			m_events.push_back(e);
+
 			switch (e.type)
 			{
 				case SDL_QUIT:
@@ -40,6 +44,11 @@ namespace engine
 					break;
 			}
 		}
+	}
+
+	std::vector<SDL_Event> Window::GetEvents()
+	{
+		return m_events;
 	}
 
 	int Window::GetTicks()

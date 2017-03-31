@@ -4,6 +4,7 @@
 
 #include <SDL.h>
 #include <memory>
+#include <vector>
 
 namespace engine
 {
@@ -18,6 +19,7 @@ namespace engine
 		~Window();
 
 		void ProcessEvents();
+		std::vector<SDL_Event> GetEvents();
 
 		int GetTicks();
 
@@ -27,6 +29,8 @@ namespace engine
 	private:
 		SDL_Window* m_window;
 		bool m_shouldClose;
+
+		std::vector<SDL_Event> m_events;
 	};
 }
 

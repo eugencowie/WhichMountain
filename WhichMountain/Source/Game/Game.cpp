@@ -8,6 +8,8 @@ namespace game
 		Engine::Initialise();
 
 		m_window = Window::Create("Race to Which Mountain?", 1280, 720);
+
+		m_input = InputManager::Create(m_window);
 	}
 
 	Game::~Game()
@@ -18,6 +20,13 @@ namespace game
 	void Game::Update(int elapsedTime)
 	{
 		m_window->ProcessEvents();
+
+		m_input->Update();
+
+		if (m_input->IsJustReleased(SDLK_ESCAPE))
+		{
+			m_window->Close();
+		}
 	}
 
 	void Game::Draw(int elapsedTime)

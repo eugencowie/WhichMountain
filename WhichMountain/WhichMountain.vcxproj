@@ -159,12 +159,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine\Engine.cpp" />
+    <ClCompile Include="Source\Engine\InputManager.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Engine\Engine.hpp" />
+    <ClInclude Include="Include\Engine\InputManager.hpp" />
     <ClInclude Include="Include\Engine\Window.hpp" />
     <ClInclude Include="Include\Game\Game.hpp" />
   </ItemGroup>
