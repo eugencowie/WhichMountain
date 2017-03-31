@@ -21,7 +21,12 @@ namespace engine
 		void ProcessEvents();
 		std::vector<SDL_Event> GetEvents();
 
+		void SwapBuffers();
+
 		int GetTicks();
+
+		void VerticalSync(bool vsync=true);
+		void CaptureMouse(bool captureMouse=true);
 
 		void Close(bool shouldClose=true) { m_shouldClose = shouldClose; }
 		bool ShouldClose() { return m_shouldClose; }
