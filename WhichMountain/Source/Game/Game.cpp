@@ -22,6 +22,13 @@ namespace game
 		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
 
 		m_texture = Texture::Create("../../../../Content/Textures/Test.jpg", TextureType::DIFFUSE);
+
+		m_mesh = Mesh::Create(m_shader, {
+			{ {-0.5f, 0.5f,0}, {}, {0,0} }, // top left
+			{ { 0.5f, 0.5f,0}, {}, {1,0} }, // top right
+			{ { 0.5f,-0.5f,0}, {}, {1,1} }, // bottom right
+			{ {-0.5f,-0.5f,0}, {}, {0,1} }  // bottom left
+		}, {0,3,2,2,1,0}, {m_texture});
 	}
 
 	Game::~Game()
@@ -45,7 +52,7 @@ namespace game
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		m_shader->Use();
+		m_mesh->Draw();
 
 		m_window->SwapBuffers();
 	}

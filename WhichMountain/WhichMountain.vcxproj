@@ -164,6 +164,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
   <ItemGroup>
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
+    <ClCompile Include="Source\Engine\Mesh.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
@@ -173,6 +174,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
   <ItemGroup>
     <ClInclude Include="Include\Engine\Engine.hpp" />
     <ClInclude Include="Include\Engine\InputManager.hpp" />
+    <ClInclude Include="Include\Engine\Mesh.hpp" />
     <ClInclude Include="Include\Engine\Shader.hpp" />
     <ClInclude Include="Include\Engine\Texture.hpp" />
     <ClInclude Include="Include\Engine\Window.hpp" />
