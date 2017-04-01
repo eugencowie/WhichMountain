@@ -90,16 +90,17 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -107,16 +108,17 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,18 +128,19 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,24 +150,26 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
     <ClCompile Include="Source\Engine\Mesh.cpp" />
+    <ClCompile Include="Source\Engine\Model.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
@@ -175,6 +180,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
     <ClInclude Include="Include\Engine\Engine.hpp" />
     <ClInclude Include="Include\Engine\InputManager.hpp" />
     <ClInclude Include="Include\Engine\Mesh.hpp" />
+    <ClInclude Include="Include\Engine\Model.hpp" />
     <ClInclude Include="Include\Engine\Shader.hpp" />
     <ClInclude Include="Include\Engine\Texture.hpp" />
     <ClInclude Include="Include\Engine\Window.hpp" />

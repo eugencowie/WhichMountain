@@ -1,6 +1,7 @@
 #include <Game/Game.hpp>
 #include <Engine/Engine.hpp>
 #include <GL/glew.h>
+#include <glm/gtc/matrix_transform.hpp>
 
 namespace game
 {
@@ -21,14 +22,9 @@ namespace game
 
 		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
 
-		m_texture = Texture::Create("../../../../Content/Textures/Test.jpg", TextureType::DIFFUSE);
+		m_model = Model::Create(m_shader, "../../../../Content/Models/RetroRacer/RetroRacer.obj");
 
-		m_mesh = Mesh::Create(m_shader, {
-			{ {-0.5f, 0.5f,0}, {}, {0,0} }, // top left
-			{ { 0.5f, 0.5f,0}, {}, {1,0} }, // top right
-			{ { 0.5f,-0.5f,0}, {}, {1,1} }, // bottom right
-			{ {-0.5f,-0.5f,0}, {}, {0,1} }  // bottom left
-		}, {0,3,2,2,1,0}, {m_texture});
+		m_rotation = 0;
 	}
 
 	Game::~Game()
@@ -52,7 +48,13 @@ namespace game
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		m_mesh->Draw();
+		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
+		glm::mat4 view = glm::lookAt(glm::vec3(3, 1.5f, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+
+		m_rotation += glm::radians(elapsedTime / 25.f);
+		glm::mat4 model = glm::rotate(glm::mat4(), m_rotation, glm::vec3(0, 1, 0));
+
+		m_model->Draw(model, view, proj);
 
 		m_window->SwapBuffers();
 	}

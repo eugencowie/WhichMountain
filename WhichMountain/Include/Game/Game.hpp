@@ -5,8 +5,7 @@
 #include <Engine/InputManager.hpp>
 #include <Engine/Window.hpp>
 #include <Engine/Shader.hpp>
-#include <Engine/Texture.hpp>
-#include <Engine/Mesh.hpp>
+#include <Engine/Model.hpp>
 
 namespace game
 {
@@ -26,8 +25,9 @@ namespace game
 
 		WindowPtr m_window;
 		ShaderPtr m_shader;
-		TexturePtr m_texture;
-		MeshPtr m_mesh;
+		ModelPtr m_model;
+
+		float m_rotation;
 	};
 }
 
