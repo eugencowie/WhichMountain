@@ -5,6 +5,7 @@
 #include <Engine/InputManager.hpp>
 #include <Engine/Window.hpp>
 #include <Engine/Shader.hpp>
+#include <Engine/Texture.hpp>
 
 namespace game
 {
@@ -24,6 +25,7 @@ namespace game
 
 		WindowPtr m_window;
 		ShaderPtr m_shader;
+		TexturePtr m_texture;
 	};
 }
 

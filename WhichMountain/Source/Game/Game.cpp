@@ -20,6 +20,8 @@ namespace game
 		m_input = InputManager::Create(m_window);
 
 		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
+
+		m_texture = Texture::Create("../../../../Content/Textures/Test.jpg", TextureType::DIFFUSE);
 	}
 
 	Game::~Game()
