@@ -13,18 +13,18 @@ namespace engine
 
 	Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	{
-		std::ifstream vertexStream(vertexPath);
-		std::string vertexString = std::string{ std::istreambuf_iterator<GLchar>(vertexStream), std::istreambuf_iterator<GLchar>() };
-		const GLchar* vertexSource = vertexString.c_str();
+		std::string vertexSource = { std::istreambuf_iterator<GLchar>(std::ifstream(vertexPath)), std::istreambuf_iterator<GLchar>() };
 
-		if (vertexString == "")
+		if (vertexSource.empty())
 		{
 			assert(0 && "Failed to load vertex shader from file");
-			exit(EXIT_FAILURE);
+			std::exit(EXIT_FAILURE);
 		}
 
+		const GLchar* vertexSourceStr = vertexSource.c_str();
+
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-		glShaderSource(vertexShader, 1, &vertexSource, nullptr);
+		glShaderSource(vertexShader, 1, &vertexSourceStr, nullptr);
 		glCompileShader(vertexShader);
 
 		GLint vertexSuccess;
@@ -33,23 +33,23 @@ namespace engine
 		if (!vertexSuccess)
 		{
 			assert(0 && "Failed to compile vertex shader");
-			exit(EXIT_FAILURE);
+			std::exit(EXIT_FAILURE);
 		}
 
 		//
 
-		std::ifstream fragmentStream(fragmentPath);
-		std::string fragmentString = std::string{ std::istreambuf_iterator<GLchar>(fragmentStream), std::istreambuf_iterator<GLchar>() };
-		const GLchar* fragmentSource = fragmentString.c_str();
+		std::string fragmentSource = std::string{ std::istreambuf_iterator<GLchar>(std::ifstream(fragmentPath)), std::istreambuf_iterator<GLchar>() };
 
-		if (fragmentString == "")
+		if (fragmentSource.empty())
 		{
 			assert(0 && "Failed to load fragment shader from file");
-			exit(EXIT_FAILURE);
+			std::exit(EXIT_FAILURE);
 		}
 
+		const GLchar* fragmentSourceStr = fragmentSource.c_str();
+
 		GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-		glShaderSource(fragmentShader, 1, &fragmentSource, nullptr);
+		glShaderSource(fragmentShader, 1, &fragmentSourceStr, nullptr);
 		glCompileShader(fragmentShader);
 
 		GLint fragmentSuccess;
@@ -58,7 +58,7 @@ namespace engine
 		if (!fragmentSuccess)
 		{
 			assert(0 && "Failed to compile fragment shader");
-			exit(EXIT_FAILURE);
+			std::exit(EXIT_FAILURE);
 		}
 
 		//
@@ -74,7 +74,7 @@ namespace engine
 		if (!programSuccess)
 		{
 			assert(0 && "Failed to link vertex and fragment shaders");
-			exit(EXIT_FAILURE);
+			std::exit(EXIT_FAILURE);
 		}
 
 		//

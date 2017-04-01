@@ -18,15 +18,15 @@ namespace engine
 
 		glGenVertexArrays(1, &m_vertexArray);
 		glBindVertexArray(m_vertexArray);
+		{
+			glGenBuffers(1, &m_vertexBuffer);
+			glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
+			glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
 
-		glGenBuffers(1, &m_vertexBuffer);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
-		glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
-
-		glGenBuffers(1, &m_elementBuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBuffer);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
-
+			glGenBuffers(1, &m_elementBuffer);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBuffer);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(GLuint), &indices[0], GL_STATIC_DRAW);
+		}
 		glBindVertexArray(0);
 
 		BindShader(shader);
@@ -44,19 +44,19 @@ namespace engine
 		m_shader = shader;
 
 		glBindVertexArray(m_vertexArray);
+		{
+			GLuint positionLoc = m_shader->GetAttribLocation("v_position");
+			glVertexAttribPointer(positionLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
+			glEnableVertexAttribArray(positionLoc);
 
-		GLuint positionLoc = m_shader->GetAttribLocation("v_position");
-		glVertexAttribPointer(positionLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
-		glEnableVertexAttribArray(positionLoc);
+			GLuint normalLoc = m_shader->GetAttribLocation("v_normal");
+			glVertexAttribPointer(normalLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
+			glEnableVertexAttribArray(normalLoc);
 
-		GLuint normalLoc = m_shader->GetAttribLocation("v_normal");
-		glVertexAttribPointer(normalLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
-		glEnableVertexAttribArray(normalLoc);
-
-		GLuint texCoordLoc = m_shader->GetAttribLocation("v_texCoord");
-		glVertexAttribPointer(texCoordLoc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoord));
-		glEnableVertexAttribArray(texCoordLoc);
-
+			GLuint texCoordLoc = m_shader->GetAttribLocation("v_texCoord");
+			glVertexAttribPointer(texCoordLoc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoord));
+			glEnableVertexAttribArray(texCoordLoc);
+		}
 		glBindVertexArray(0);
 	}
 
@@ -69,23 +69,24 @@ namespace engine
 		for (unsigned int i = 0; i < m_textures.size(); i++)
 		{
 			glActiveTexture(GL_TEXTURE0 + i);
-
-			std::string name;
-
-			if (m_textures[i]->GetType() == TextureType::DIFFUSE)
 			{
-				name = "texture_diffuse" + std::to_string(diffuseCount++);
-			}
-			else if (m_textures[i]->GetType() == TextureType::SPECULAR)
-			{
-				name = "texture_specular" + std::to_string(specularCount++);
-			}
+				std::string name;
+				switch (m_textures[i]->GetType())
+				{
+					case TextureType::DIFFUSE:
+						name = "texture_diffuse" + std::to_string(diffuseCount++);
+						break;
 
-			m_shader->SetUniform(name.c_str(), i);
+					case TextureType::SPECULAR:
+						name = "texture_specular" + std::to_string(specularCount++);
+						break;
+				}
 
-			glBindTexture(GL_TEXTURE_2D, m_textures[i]->GetTexture());
+				m_shader->SetUniform(name.c_str(), i);
+				glBindTexture(GL_TEXTURE_2D, m_textures[i]->GetTexture());
+			}
+			glActiveTexture(GL_TEXTURE0);
 		}
-		glActiveTexture(GL_TEXTURE0);
 
 		m_shader->SetUniform("modelViewProjection", projection * view * model);
 		m_shader->SetUniform("projection", projection);
@@ -93,8 +94,10 @@ namespace engine
 		m_shader->SetUniform("model", model);
 
 		glBindVertexArray(m_vertexArray);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBuffer);
-		glDrawElements(GL_TRIANGLES, (GLsizei)m_indices.size(), GL_UNSIGNED_INT, nullptr);
+		{
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBuffer);
+			glDrawElements(GL_TRIANGLES, (GLsizei)m_indices.size(), GL_UNSIGNED_INT, nullptr);
+		}
 		glBindVertexArray(0);
 	}
 }

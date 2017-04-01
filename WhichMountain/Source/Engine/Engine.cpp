@@ -1,4 +1,5 @@
 #include <Engine/Engine.hpp>
+
 #include <SDL.h>
 #include <cassert>
 #include <cstdlib>

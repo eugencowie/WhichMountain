@@ -1,4 +1,5 @@
 #include <Engine/Window.hpp>
+
 #include <GL/glew.h>
 #include <cassert>
 #include <cstdlib>
@@ -20,7 +21,7 @@ namespace engine
 		if (!m_window)
 		{
 			assert(0 && "Failed to create SDL window");
-			std::exit(-1);
+			std::exit(EXIT_FAILURE);
 		}
 
 		SDL_GLContext context = SDL_GL_CreateContext(m_window);
@@ -28,7 +29,7 @@ namespace engine
 		if (!context)
 		{
 			assert(0 && "Failed to create OpenGL context");
-			std::exit(-1);
+			std::exit(EXIT_FAILURE);
 		}
 
 		GLenum result = glewInit();
@@ -36,13 +37,13 @@ namespace engine
 		if (result != GLEW_OK)
 		{
 			assert(0 && "Failed to load OpenGL");
-			std::exit(-1);
+			std::exit(EXIT_FAILURE);
 		}
 
 		if (!GLEW_VERSION_2_1 || !GLEW_ARB_vertex_array_object)
 		{
 			assert(0 && "OpenGL version does not meet requirements");
-			std::exit(-1);
+			std::exit(EXIT_FAILURE);
 		}
 
 		m_shouldClose = false;
