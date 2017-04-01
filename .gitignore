@@ -1,7 +1,6 @@
 Build/
 
 .vs/
-*.user
 *.suo
 *.sdf
 *.opensdf

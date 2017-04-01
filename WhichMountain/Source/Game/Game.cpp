@@ -18,6 +18,8 @@ namespace game
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		m_input = InputManager::Create(m_window);
+
+		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
 	}
 
 	Game::~Game()
@@ -40,6 +42,8 @@ namespace game
 	void Game::Draw(int elapsedTime)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		m_shader->Use();
 
 		m_window->SwapBuffers();
 	}

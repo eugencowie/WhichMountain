@@ -90,7 +90,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -107,7 +107,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -126,7 +126,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -147,7 +147,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -164,6 +164,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
   <ItemGroup>
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
+    <ClCompile Include="Source\Engine\Shader.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
     <ClCompile Include="Source\Main.cpp" />
@@ -171,6 +172,7 @@ xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
   <ItemGroup>
     <ClInclude Include="Include\Engine\Engine.hpp" />
     <ClInclude Include="Include\Engine\InputManager.hpp" />
+    <ClInclude Include="Include\Engine\Shader.hpp" />
     <ClInclude Include="Include\Engine\Window.hpp" />
     <ClInclude Include="Include\Game\Game.hpp" />
   </ItemGroup>
