@@ -170,10 +170,12 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Engine\InputManager.cpp" />
     <ClCompile Include="Source\Engine\Mesh.cpp" />
     <ClCompile Include="Source\Engine\Model.cpp" />
+    <ClCompile Include="Source\Engine\ScreenManager.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
+    <ClCompile Include="Source\Game\GameScreen.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -181,10 +183,12 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClInclude Include="Include\Engine\InputManager.hpp" />
     <ClInclude Include="Include\Engine\Mesh.hpp" />
     <ClInclude Include="Include\Engine\Model.hpp" />
+    <ClInclude Include="Include\Engine\ScreenManager.hpp" />
     <ClInclude Include="Include\Engine\Shader.hpp" />
     <ClInclude Include="Include\Engine\Texture.hpp" />
     <ClInclude Include="Include\Engine\Window.hpp" />
     <ClInclude Include="Include\Game\Game.hpp" />
+    <ClInclude Include="Include\Game\GameScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
