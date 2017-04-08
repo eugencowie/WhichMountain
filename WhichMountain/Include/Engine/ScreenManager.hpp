@@ -7,7 +7,7 @@
 
 namespace engine
 {
-	typedef std::shared_ptr<class IScreen> IScreenPtr;
+	typedef std::unique_ptr<class IScreen> IScreenPtr;
 
 	class IScreen
 	{
@@ -17,13 +17,9 @@ namespace engine
 		virtual void Draw(int elapsedTime) = 0;
 	};
 
-	typedef std::shared_ptr<class ScreenManager> ScreenManagerPtr;
-
 	class ScreenManager
 	{
 	public:
-		static ScreenManagerPtr Create();
-
 		void Switch(IScreenPtr screen);
 		void Push(IScreenPtr screen);
 		void Pop();
@@ -39,8 +35,6 @@ namespace engine
 
 using engine::IScreenPtr;
 using engine::IScreen;
-
-using engine::ScreenManagerPtr;
 using engine::ScreenManager;
 
 #endif

@@ -3,16 +3,12 @@
 
 namespace game
 {
-	GameScreen::GameScreen(WindowPtr window, InputManagerPtr input)
+	GameScreen::GameScreen(Window* window, InputManager* input) :
+		m_window(window),
+		m_input(input)
 	{
-		m_input = input;
-		m_window = window;
-
 		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
-
 		m_model = Model::Create(m_shader, "../../../../Content/Models/RetroRacer/RetroRacer.obj");
-
-		m_rotation = 0;
 	}
 
 	void GameScreen::Update(int elapsedTime)

@@ -5,11 +5,6 @@
 
 namespace engine
 {
-	WindowPtr Window::Create(const char* title, int width, int height)
-	{
-		return std::make_shared<Window>(title, width, height);
-	}
-
 	Window::Window(const char* title, int width, int height)
 	{
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);

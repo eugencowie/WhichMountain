@@ -2,16 +2,11 @@
 
 namespace engine
 {
-	InputManager::InputManager(WindowPtr window)
-	{
-		m_window = window;
-	}
-	
-	void InputManager::Update()
+	void InputManager::ProcessEvents(std::vector<SDL_Event> events)
 	{
 		m_prevKeys = m_currKeys;
 
-		for (auto e : m_window->GetEvents())
+		for (auto e : events)
 		{
 			switch (e.type)
 			{

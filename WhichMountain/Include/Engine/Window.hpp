@@ -3,18 +3,13 @@
 #define ENGINE_WINDOW_HPP
 
 #include <SDL.h>
-#include <memory>
 #include <vector>
 
 namespace engine
 {
-	typedef std::shared_ptr<class Window> WindowPtr;
-
 	class Window
 	{
 	public:
-		static WindowPtr Create(const char* title, int width, int height);
-
 		Window(const char* title, int width, int height);
 		Window(const Window&) = delete;
 		~Window();
@@ -41,7 +36,6 @@ namespace engine
 	};
 }
 
-using engine::WindowPtr;
 using engine::Window;
 
 #endif

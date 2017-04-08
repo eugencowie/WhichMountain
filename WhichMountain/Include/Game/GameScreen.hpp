@@ -15,18 +15,18 @@ namespace game
 	class GameScreen : public IScreen
 	{
 	public:
-		static auto Create(WindowPtr window, InputManagerPtr input) {
-			return std::make_shared<GameScreen>(window, input);
+		static IScreenPtr Create(Window* window, InputManager* input) {
+			return std::make_unique<GameScreen>(window, input);
 		}
 
-		GameScreen(WindowPtr window, InputManagerPtr input);
+		GameScreen(Window* window, InputManager* input);
 
 		void Update(int elapsedTime) override;
 		void Draw(int elapsedTime) override;
 
 	private:
-		InputManagerPtr m_input;
-		WindowPtr m_window;
+		Window* m_window;
+		InputManager* m_input;
 		ShaderPtr m_shader;
 		ModelPtr m_model;
 		float m_rotation;

@@ -19,10 +19,9 @@ namespace game
 		void Update(int elapsedTime);
 		void Draw(int elapsedTime);
 
-		ScreenManagerPtr m_screens;
-		InputManagerPtr m_input;
-
-		WindowPtr m_window;
+		Window m_window;
+		InputManager m_input;
+		ScreenManager m_screens;
 	};
 }
 

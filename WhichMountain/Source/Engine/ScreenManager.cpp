@@ -5,12 +5,12 @@ namespace engine
 	void ScreenManager::Switch(IScreenPtr screen)
 	{
 		Clear();
-		Push(screen);
+		Push(std::move(screen));
 	}
 
 	void ScreenManager::Push(IScreenPtr screen)
 	{
-		m_screens.push_back(screen);
+		m_screens.push_back(std::move(screen));
 	}
 
 	void ScreenManager::Pop()
@@ -25,17 +25,17 @@ namespace engine
 
 	void ScreenManager::Update(int elapsedTime)
 	{
-		for (auto screen : m_screens)
+		for (auto it = m_screens.begin(); it != m_screens.end(); ++it)
 		{
-			screen->Update(elapsedTime);
+			(*it)->Update(elapsedTime);
 		}
 	}
 
 	void ScreenManager::Draw(int elapsedTime)
 	{
-		for (auto screen : m_screens)
+		for (auto it = m_screens.begin(); it != m_screens.end(); ++it)
 		{
-			screen->Draw(elapsedTime);
+			(*it)->Draw(elapsedTime);
 		}
 	}
 }
