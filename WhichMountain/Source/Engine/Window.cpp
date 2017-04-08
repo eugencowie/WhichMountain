@@ -2,7 +2,6 @@
 
 #include <GL/glew.h>
 #include <cassert>
-#include <cstdlib>
 
 namespace engine
 {
@@ -20,7 +19,7 @@ namespace engine
 
 		if (!m_window)
 		{
-			assert(0 && "Failed to create SDL window");
+			assert(false && "Failed to create SDL window");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -28,7 +27,7 @@ namespace engine
 
 		if (!context)
 		{
-			assert(0 && "Failed to create OpenGL context");
+			assert(false && "Failed to create OpenGL context");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -36,13 +35,13 @@ namespace engine
 
 		if (result != GLEW_OK)
 		{
-			assert(0 && "Failed to load OpenGL");
+			assert(false && "Failed to load OpenGL");
 			std::exit(EXIT_FAILURE);
 		}
 
 		if (!GLEW_VERSION_2_1 || !GLEW_ARB_vertex_array_object)
 		{
-			assert(0 && "OpenGL version does not meet requirements");
+			assert(false && "OpenGL version does not meet requirements");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -71,11 +70,6 @@ namespace engine
 					break;
 			}
 		}
-	}
-
-	std::vector<SDL_Event> Window::GetEvents()
-	{
-		return m_events;
 	}
 
 	void Window::SwapBuffers()

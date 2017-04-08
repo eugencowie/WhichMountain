@@ -1,8 +1,8 @@
 #include <Engine/Engine.hpp>
 
 #include <SDL.h>
-#include <cassert>
 #include <cstdlib>
+#include <cassert>
 
 namespace engine
 {
@@ -12,7 +12,7 @@ namespace engine
 
 		if (result != 0)
 		{
-			assert(0 && "Failed to initialise SDL");
+			assert(false && "Failed to initialise SDL");
 			std::exit(EXIT_FAILURE);
 		}
 	}

@@ -2,9 +2,10 @@
 #ifndef ENGINE_MESH_HPP
 #define ENGINE_MESH_HPP
 
-#include "Texture.hpp"
 #include "Shader.hpp"
+#include "Texture.hpp"
 
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <vector>
 #include <memory>
@@ -23,7 +24,9 @@ namespace engine
 	class Mesh
 	{
 	public:
-		static MeshPtr Create(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures);
+		static MeshPtr Create(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures) {
+			return std::make_shared<Mesh>(shader, vertices, indices, textures);
+		}
 
 		Mesh(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures);
 		~Mesh();

@@ -1,23 +1,28 @@
 #pragma once
-#ifndef GAME_GAME_SCREEN_HPP
-#define GAME_GAME_SCREEN_HPP
+#ifndef GAME_GAMESCREEN_HPP
+#define GAME_GAMESCREEN_HPP
 
-#include <Engine/ScreenManager.hpp>
-#include <Engine/InputManager.hpp>
-#include <Engine/Shader.hpp>
-#include <Engine/Model.hpp>
+#include "../Engine/Window.hpp"
+#include "../Engine/InputManager.hpp"
+#include "../Engine/ScreenManager.hpp"
+#include "../Engine/Shader.hpp"
+#include "../Engine/Model.hpp"
+
+#include <memory>
 
 namespace game
 {
 	class GameScreen : public IScreen
 	{
 	public:
-		static std::shared_ptr<GameScreen> Create(WindowPtr window, InputManagerPtr input);
+		static auto Create(WindowPtr window, InputManagerPtr input) {
+			return std::make_shared<GameScreen>(window, input);
+		}
 
 		GameScreen(WindowPtr window, InputManagerPtr input);
 
-		virtual void Update(int elapsedTime) override;
-		virtual void Draw(int elapsedTime) override;
+		void Update(int elapsedTime) override;
+		void Draw(int elapsedTime) override;
 
 	private:
 		InputManagerPtr m_input;

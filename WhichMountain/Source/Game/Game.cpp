@@ -1,15 +1,11 @@
 #include <Game/Game.hpp>
 #include <Game/GameScreen.hpp>
-
-#include <Engine/Engine.hpp>
 #include <GL/glew.h>
 
 namespace game
 {
 	Game::Game()
 	{
-		Engine::Initialise();
-
 		m_window = Window::Create("Race to Which Mountain?", 1280, 720);
 		m_window->VerticalSync(true);
 
@@ -23,11 +19,6 @@ namespace game
 		m_input = InputManager::Create(m_window);
 
 		m_screens->Switch(GameScreen::Create(m_window, m_input));
-	}
-
-	Game::~Game()
-	{
-		Engine::Finalise();
 	}
 
 	void Game::Update(int elapsedTime)

@@ -15,14 +15,17 @@ namespace engine
 	class Texture
 	{
 	public:
-		static TexturePtr Create(const char* path, TextureType type, bool flipUVs=false);
+		static TexturePtr Create(const char* path, TextureType type, bool flipUVs=false) {
+			return std::make_shared<Texture>(path, type, flipUVs);
+		}
 
 		Texture(const char* path, TextureType type, bool flipUVs=false);
+		Texture(const Texture&) = delete;
 		~Texture();
 
-		GLuint GetTexture() { return m_texture; }
-		TextureType GetType() { return m_type; }
-		std::string GetPath() { return m_path; }
+		GLuint GetTexture() const { return m_texture; }
+		TextureType GetType() const { return m_type; }
+		std::string GetPath() const { return m_path; }
 
 	private:
 		GLuint m_texture;

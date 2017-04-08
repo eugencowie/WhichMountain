@@ -5,11 +5,6 @@
 
 namespace engine
 {
-	ModelPtr Model::Create(ShaderPtr shader, std::string path)
-	{
-		return std::make_shared<Model>(shader, path);
-	}
-
 	Model::Model(ShaderPtr shader, std::string path)
 	{
 		m_directory = path.substr(0, path.find_last_of('/'));
@@ -19,7 +14,7 @@ namespace engine
 
 		if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
 		{
-			assert(0 && "Failed to load model");
+			assert(false && "Failed to load model");
 			std::exit(EXIT_FAILURE);
 		}
 

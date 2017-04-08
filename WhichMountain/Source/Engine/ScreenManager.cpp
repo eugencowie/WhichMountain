@@ -2,11 +2,6 @@
 
 namespace engine
 {
-	ScreenManagerPtr ScreenManager::Create()
-	{
-		return std::make_shared<ScreenManager>();
-	}
-
 	void ScreenManager::Switch(IScreenPtr screen)
 	{
 		Clear();

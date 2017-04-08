@@ -2,11 +2,9 @@
 #ifndef GAME_GAME_HPP
 #define GAME_GAME_HPP
 
-#include <Engine/ScreenManager.hpp>
-#include <Engine/InputManager.hpp>
-#include <Engine/Window.hpp>
-#include <Engine/Shader.hpp>
-#include <Engine/Model.hpp>
+#include "../Engine/Window.hpp"
+#include "../Engine/InputManager.hpp"
+#include "../Engine/ScreenManager.hpp"
 
 namespace game
 {
@@ -14,7 +12,6 @@ namespace game
 	{
 	public:
 		Game();
-		~Game();
 
 		void Run();
 

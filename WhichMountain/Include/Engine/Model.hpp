@@ -2,10 +2,12 @@
 #ifndef ENGINE_MODEL_HPP
 #define ENGINE_MODEL_HPP
 
+#include "Shader.hpp"
 #include "Texture.hpp"
 #include "Mesh.hpp"
 
 #include <assimp/scene.h>
+#include <glm/glm.hpp>
 #include <vector>
 #include <memory>
 
@@ -16,7 +18,9 @@ namespace engine
 	class Model
 	{
 	public:
-		static ModelPtr Create(ShaderPtr shader, std::string path);
+		static ModelPtr Create(ShaderPtr shader, std::string path) {
+			return std::make_shared<Model>(shader, path);
+		}
 
 		Model(ShaderPtr shader, std::string path);
 

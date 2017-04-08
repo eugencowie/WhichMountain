@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ENGINE_INPUT_MANAGER_HPP
-#define ENGINE_INPUT_MANAGER_HPP
+#ifndef ENGINE_INPUTMANAGER_HPP
+#define ENGINE_INPUTMANAGER_HPP
 
 #include <Engine/Window.hpp>
 #include <list>
@@ -20,12 +20,8 @@ namespace engine
 
 		bool IsDown(SDL_Keycode key);
 		bool WasDown(SDL_Keycode key);
-
-		bool IsUp(SDL_Keycode key) { return !IsDown(key); }
-		bool WasUp(SDL_Keycode key) { return !WasDown(key); }
-
-		bool IsJustPressed(SDL_Keycode key) { return IsDown(key) && WasUp(key); }
-		bool IsJustReleased(SDL_Keycode key) { return IsUp(key) && WasDown(key); }
+		bool IsJustPressed(SDL_Keycode key) { return IsDown(key) && !WasDown(key); }
+		bool IsJustReleased(SDL_Keycode key) { return !IsDown(key) && WasDown(key); }
 
 	private:
 		WindowPtr m_window;

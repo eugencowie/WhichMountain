@@ -1,9 +1,9 @@
 #pragma once
-#ifndef ENGINE_SCREEN_MANAGER_HPP
-#define ENGINE_SCREEN_MANAGER_HPP
+#ifndef ENGINE_SCREENMANAGER_HPP
+#define ENGINE_SCREENMANAGER_HPP
 
-#include <memory>
 #include <vector>
+#include <memory>
 
 namespace engine
 {
@@ -12,6 +12,7 @@ namespace engine
 	class IScreen
 	{
 	public:
+		virtual ~IScreen() = default;
 		virtual void Update(int elapsedTime) = 0;
 		virtual void Draw(int elapsedTime) = 0;
 	};

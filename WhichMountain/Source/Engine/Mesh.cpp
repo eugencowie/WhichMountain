@@ -5,11 +5,6 @@
 
 namespace engine
 {
-	MeshPtr Mesh::Create(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures)
-	{
-		return std::make_shared<Mesh>(shader, vertices, indices, textures);
-	}
-
 	Mesh::Mesh(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures)
 	{
 		m_vertices = vertices;
@@ -46,15 +41,15 @@ namespace engine
 		glBindVertexArray(m_vertexArray);
 		{
 			GLuint positionLoc = m_shader->GetAttribLocation("v_position");
-			glVertexAttribPointer(positionLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
+			glVertexAttribPointer(positionLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), static_cast<GLvoid*>(nullptr));
 			glEnableVertexAttribArray(positionLoc);
 
 			GLuint normalLoc = m_shader->GetAttribLocation("v_normal");
-			glVertexAttribPointer(normalLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, normal));
+			glVertexAttribPointer(normalLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid*>(offsetof(Vertex, normal)));
 			glEnableVertexAttribArray(normalLoc);
 
 			GLuint texCoordLoc = m_shader->GetAttribLocation("v_texCoord");
-			glVertexAttribPointer(texCoordLoc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)offsetof(Vertex, texCoord));
+			glVertexAttribPointer(texCoordLoc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), reinterpret_cast<GLvoid*>(offsetof(Vertex, texCoord)));
 			glEnableVertexAttribArray(texCoordLoc);
 		}
 		glBindVertexArray(0);
@@ -96,7 +91,7 @@ namespace engine
 		glBindVertexArray(m_vertexArray);
 		{
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBuffer);
-			glDrawElements(GL_TRIANGLES, (GLsizei)m_indices.size(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(m_indices.size()), GL_UNSIGNED_INT, nullptr);
 		}
 		glBindVertexArray(0);
 	}

@@ -2,11 +2,6 @@
 
 namespace engine
 {
-	InputManagerPtr InputManager::Create(WindowPtr window)
-	{
-		return std::make_shared<InputManager>(window);
-	}
-
 	InputManager::InputManager(WindowPtr window)
 	{
 		m_window = window;

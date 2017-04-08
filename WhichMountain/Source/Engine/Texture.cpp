@@ -6,11 +6,6 @@
 
 namespace engine
 {
-	TexturePtr Texture::Create(const char* path, TextureType type, bool flipUVs)
-	{
-		return std::make_shared<Texture>(path, type, flipUVs);
-	}
-
 	Texture::Texture(const char* path, TextureType type, bool flipUVs)
 	{
 		m_path = path;
@@ -23,7 +18,7 @@ namespace engine
 
 		if (!image)
 		{
-			assert(0 && "Failed to load texture image");
+			assert(false && "Failed to load texture image");
 			std::exit(EXIT_FAILURE);
 		}
 

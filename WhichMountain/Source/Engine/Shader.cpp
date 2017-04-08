@@ -6,18 +6,14 @@
 
 namespace engine
 {
-	ShaderPtr Shader::Create(const char* vertexPath, const char* fragmentPath)
-	{
-		return std::make_shared<Shader>(vertexPath, fragmentPath);
-	}
-
 	Shader::Shader(const char* vertexPath, const char* fragmentPath)
 	{
-		std::string vertexSource = { std::istreambuf_iterator<GLchar>(std::ifstream(vertexPath)), std::istreambuf_iterator<GLchar>() };
+		std::ifstream vertexStream(vertexPath);
+		std::string vertexSource = { std::istreambuf_iterator<GLchar>(vertexStream), std::istreambuf_iterator<GLchar>() };
 
 		if (vertexSource.empty())
 		{
-			assert(0 && "Failed to load vertex shader from file");
+			assert(false && "Failed to load vertex shader from file");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -32,17 +28,18 @@ namespace engine
 
 		if (!vertexSuccess)
 		{
-			assert(0 && "Failed to compile vertex shader");
+			assert(false && "Failed to compile vertex shader");
 			std::exit(EXIT_FAILURE);
 		}
 
 		//
 
-		std::string fragmentSource = std::string{ std::istreambuf_iterator<GLchar>(std::ifstream(fragmentPath)), std::istreambuf_iterator<GLchar>() };
+		std::ifstream fragmentStream(fragmentPath);
+		std::string fragmentSource = std::string{ std::istreambuf_iterator<GLchar>(fragmentStream), std::istreambuf_iterator<GLchar>() };
 
 		if (fragmentSource.empty())
 		{
-			assert(0 && "Failed to load fragment shader from file");
+			assert(false && "Failed to load fragment shader from file");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -57,7 +54,7 @@ namespace engine
 
 		if (!fragmentSuccess)
 		{
-			assert(0 && "Failed to compile fragment shader");
+			assert(false && "Failed to compile fragment shader");
 			std::exit(EXIT_FAILURE);
 		}
 
@@ -73,7 +70,7 @@ namespace engine
 
 		if (!programSuccess)
 		{
-			assert(0 && "Failed to link vertex and fragment shaders");
+			assert(false && "Failed to link vertex and fragment shaders");
 			std::exit(EXIT_FAILURE);
 		}
 

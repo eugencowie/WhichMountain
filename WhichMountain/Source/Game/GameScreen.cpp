@@ -3,11 +3,6 @@
 
 namespace game
 {
-	std::shared_ptr<GameScreen> GameScreen::Create(WindowPtr window, InputManagerPtr input)
-	{
-		return std::make_shared<GameScreen>(window, input);
-	}
-
 	GameScreen::GameScreen(WindowPtr window, InputManagerPtr input)
 	{
 		m_input = input;

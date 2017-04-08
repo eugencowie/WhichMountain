@@ -7,6 +7,8 @@ namespace engine
 	class Engine
 	{
 	public:
+		Engine() = delete;
+
 		static void Initialise();
 		static void Finalise();
 	};

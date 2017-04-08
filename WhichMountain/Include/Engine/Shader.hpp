@@ -13,9 +13,12 @@ namespace engine
 	class Shader
 	{
 	public:
-		static ShaderPtr Create(const char* vertexPath, const char* fragmentPath);
+		static ShaderPtr Create(const char* vertexPath, const char* fragmentPath) {
+			return std::make_shared<Shader>(vertexPath, fragmentPath);
+		}
 
 		Shader(const char* vertexPath, const char* fragmentPath);
+		Shader(const Shader&) = delete;
 		~Shader();
 
 		void Use();

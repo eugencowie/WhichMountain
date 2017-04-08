@@ -1,10 +1,13 @@
+#include <Engine/Engine.hpp>
 #include <Game/Game.hpp>
 
 int main(int argc, char** argv)
 {
-	Game game;
+	Engine::Initialise();
 
-	game.Run();
+	Game().Run();
+
+	Engine::Finalise();
 
 	return 0;
 }
