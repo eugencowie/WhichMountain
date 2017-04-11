@@ -1,5 +1,6 @@
-#include <Game/Game.hpp>
-#include <Game/GameScreen.hpp>
+#include "Game.hpp"
+#include "Screens/GameScreen.hpp"
+
 #include <GL/glew.h>
 
 namespace game

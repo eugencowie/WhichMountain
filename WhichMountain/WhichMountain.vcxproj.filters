@@ -3,20 +3,10 @@
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Header Files\Engine">
-      <UniqueIdentifier>{494f083a-0cb4-48cc-a401-192d359ef88f}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd;cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{754cf0f6-a73b-43c6-81c5-67e80f3b6b06}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game">
-      <UniqueIdentifier>{61ac868c-1c4c-4534-b2c4-451f12e36271}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{a0de1db4-c2e6-4cee-aca9-3622ea42a251}</UniqueIdentifier>
@@ -24,6 +14,12 @@
     <Filter Include="Content Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Game\Screens">
+      <UniqueIdentifier>{3d0d0606-a169-4fd4-933c-9a4a1382ac91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Objects">
+      <UniqueIdentifier>{b8f801a4-5d61-43cd-aa86-a668c114626a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,40 +53,40 @@
     <ClCompile Include="Source\Engine\ScreenManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Game\GameScreen.cpp">
-      <Filter>Source Files\Game</Filter>
+    <ClCompile Include="Source\Game\Screens\GameScreen.cpp">
+      <Filter>Source Files\Game\Screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Engine\Window.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Game\Game.hpp">
+      <Filter>Source Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Game\Game.hpp">
-      <Filter>Header Files\Game</Filter>
+    <ClInclude Include="Source\Engine\Engine.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\Engine.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\InputManager.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\InputManager.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\Mesh.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\Shader.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\Model.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\Texture.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\ScreenManager.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\Mesh.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\Shader.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\Model.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\Texture.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Engine\ScreenManager.hpp">
-      <Filter>Header Files\Engine</Filter>
+    <ClInclude Include="Source\Engine\Window.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Game\GameScreen.hpp">
-      <Filter>Header Files\Game</Filter>
+    <ClInclude Include="Source\Game\Screens\GameScreen.hpp">
+      <Filter>Source Files\Game\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

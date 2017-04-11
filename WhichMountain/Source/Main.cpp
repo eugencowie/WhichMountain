@@ -1,5 +1,5 @@
-#include <Engine/Engine.hpp>
-#include <Game/Game.hpp>
+#include "Engine/Engine.hpp"
+#include "Game/Game.hpp"
 
 int main(int argc, char** argv)
 {

@@ -1,4 +1,5 @@
-#include <Game/GameScreen.hpp>
+#include "GameScreen.hpp"
+
 #include <glm/gtc/matrix_transform.hpp>
 
 namespace game

@@ -90,7 +90,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -108,7 +108,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -128,7 +128,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -150,7 +150,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Include;$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -175,20 +175,20 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
-    <ClCompile Include="Source\Game\GameScreen.cpp" />
+    <ClCompile Include="Source\Game\Screens\GameScreen.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\Engine\Engine.hpp" />
-    <ClInclude Include="Include\Engine\InputManager.hpp" />
-    <ClInclude Include="Include\Engine\Mesh.hpp" />
-    <ClInclude Include="Include\Engine\Model.hpp" />
-    <ClInclude Include="Include\Engine\ScreenManager.hpp" />
-    <ClInclude Include="Include\Engine\Shader.hpp" />
-    <ClInclude Include="Include\Engine\Texture.hpp" />
-    <ClInclude Include="Include\Engine\Window.hpp" />
-    <ClInclude Include="Include\Game\Game.hpp" />
-    <ClInclude Include="Include\Game\GameScreen.hpp" />
+    <ClInclude Include="Source\Engine\Engine.hpp" />
+    <ClInclude Include="Source\Engine\InputManager.hpp" />
+    <ClInclude Include="Source\Engine\Mesh.hpp" />
+    <ClInclude Include="Source\Engine\Model.hpp" />
+    <ClInclude Include="Source\Engine\ScreenManager.hpp" />
+    <ClInclude Include="Source\Engine\Shader.hpp" />
+    <ClInclude Include="Source\Engine\Texture.hpp" />
+    <ClInclude Include="Source\Engine\Window.hpp" />
+    <ClInclude Include="Source\Game\Game.hpp" />
+    <ClInclude Include="Source\Game\Screens\GameScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
