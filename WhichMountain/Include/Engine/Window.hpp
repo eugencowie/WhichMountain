@@ -23,6 +23,8 @@ namespace engine
 		void VerticalSync(bool vsync=true);
 		void CaptureMouse(bool captureMouse=true);
 
+		void SetTitle(const char* title);
+
 		void Close(bool shouldClose=true) { m_shouldClose = shouldClose; }
 		bool ShouldClose() const { return m_shouldClose; }
 

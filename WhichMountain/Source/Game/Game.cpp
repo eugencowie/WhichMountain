@@ -41,6 +41,12 @@ namespace game
 		static const int UPDATE_FREQ = 16;
 		int timeSinceUpdate = 0;
 
+#ifdef _DEBUG
+		static const int FPS_FREQ = 1000;
+		int timeSinceFps = 0;
+		int framesSinceFps = 0;
+#endif
+
 		int prevTime = m_window.GetTicks();
 
 		while (!m_window.ShouldClose())
@@ -56,6 +62,18 @@ namespace game
 			}
 
 			Draw(elapsedTime);
+
+#ifdef _DEBUG
+			timeSinceFps += elapsedTime;
+			if (timeSinceFps >= FPS_FREQ)
+			{
+				timeSinceFps -= FPS_FREQ;
+				std::string title = "Race to Which Mountain? (FPS: " + std::to_string(framesSinceFps) + ")";
+				m_window.SetTitle(title.c_str());
+				framesSinceFps = 0;
+			}
+			framesSinceFps++;
+#endif
 
 			prevTime = currentTime;
 		}

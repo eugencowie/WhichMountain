@@ -86,4 +86,9 @@ namespace engine
 	{
 		SDL_SetRelativeMouseMode(captureMouse ? SDL_TRUE : SDL_FALSE);
 	}
+
+	void Window::SetTitle(const char* title)
+	{
+		SDL_SetWindowTitle(m_window, title);
+	}
 }
