@@ -176,6 +176,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
+    <ClCompile Include="Source\Game\Objects\Player.cpp" />
     <ClCompile Include="Source\Game\Screens\GameScreen.cpp" />
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
@@ -190,6 +191,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClInclude Include="Source\Engine\Texture.hpp" />
     <ClInclude Include="Source\Engine\Window.hpp" />
     <ClInclude Include="Source\Game\Game.hpp" />
+    <ClInclude Include="Source\Game\Objects\Player.hpp" />
     <ClInclude Include="Source\Game\Screens\GameScreen.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

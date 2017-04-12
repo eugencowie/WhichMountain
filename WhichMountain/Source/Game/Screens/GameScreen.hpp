@@ -6,8 +6,7 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
-#include "../../Engine/Shader.hpp"
-#include "../../Engine/Model.hpp"
+#include "../Objects/Player.hpp"
 
 #include <memory>
 
@@ -30,9 +29,7 @@ namespace game
 		private:
 			Window* m_window;
 			InputManager* m_input;
-			ShaderPtr m_shader;
-			ModelPtr m_model;
-			float m_rotation;
+			Player m_player;
 		};
 	}
 }
