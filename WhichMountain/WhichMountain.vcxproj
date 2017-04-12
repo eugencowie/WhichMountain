@@ -166,6 +166,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Engine\ContentManager.cpp" />
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
     <ClCompile Include="Source\Engine\Mesh.cpp" />
@@ -179,6 +180,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine\ContentManager.hpp" />
     <ClInclude Include="Source\Engine\Engine.hpp" />
     <ClInclude Include="Source\Engine\InputManager.hpp" />
     <ClInclude Include="Source\Engine\Mesh.hpp" />

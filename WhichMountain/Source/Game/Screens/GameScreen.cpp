@@ -4,12 +4,12 @@
 
 namespace game
 {
-	GameScreen::GameScreen(Window* window, InputManager* input) :
+	GameScreen::GameScreen(Window* window, InputManager* input, ContentManager* content) :
 		m_window(window),
 		m_input(input)
 	{
-		m_shader = Shader::Create("../../../../Content/Shaders/Textured.vert", "../../../../Content/Shaders/Textured.frag");
-		m_model = Model::Create(m_shader, "../../../../Content/Models/RetroRacer/RetroRacer.obj");
+		m_shader = content->GetShader("Shaders/Textured");
+		m_model = content->GetModel(m_shader, "Models/RetroRacer/RetroRacer.obj");
 	}
 
 	void GameScreen::Update(int elapsedTime)

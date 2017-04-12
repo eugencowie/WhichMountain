@@ -5,6 +5,7 @@
 #include "../Engine/Window.hpp"
 #include "../Engine/InputManager.hpp"
 #include "../Engine/ScreenManager.hpp"
+#include "../Engine/ContentManager.hpp"
 
 namespace game
 {
@@ -22,6 +23,7 @@ namespace game
 		Window m_window;
 		InputManager m_input;
 		ScreenManager m_screens;
+		ContentManager m_content;
 	};
 }
 

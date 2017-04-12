@@ -5,6 +5,7 @@
 #include "../../Engine/Window.hpp"
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
+#include "../../Engine/ContentManager.hpp"
 #include "../../Engine/Shader.hpp"
 #include "../../Engine/Model.hpp"
 
@@ -17,11 +18,11 @@ namespace game
 		class GameScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window* window, InputManager* input) {
-				return std::make_unique<GameScreen>(window, input);
+			static IScreenPtr Create(Window* window, InputManager* input, ContentManager* content) {
+				return std::make_unique<GameScreen>(window, input, content);
 			}
 
-			GameScreen(Window* window, InputManager* input);
+			GameScreen(Window* window, InputManager* input, ContentManager* content);
 
 			void Update(int elapsedTime) override;
 			void Draw(int elapsedTime) override;

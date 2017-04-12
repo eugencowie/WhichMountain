@@ -6,7 +6,8 @@
 namespace game
 {
 	Game::Game() :
-		m_window("Race to Which Mountain?", 1280, 720)
+		m_window("Race to Which Mountain?", 1280, 720),
+		m_content("Content", "../../../../Content")
 	{
 		m_window.VerticalSync(true);
 
@@ -16,7 +17,7 @@ namespace game
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		m_screens.Switch(GameScreen::Create(&m_window, &m_input));
+		m_screens.Switch(GameScreen::Create(&m_window, &m_input, &m_content));
 	}
 
 	void Game::Update(int elapsedTime)
