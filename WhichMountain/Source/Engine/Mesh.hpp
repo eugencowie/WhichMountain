@@ -29,6 +29,7 @@ namespace engine
 		}
 
 		Mesh(ShaderPtr shader, std::vector<Vertex> vertices, std::vector<GLuint> indices, std::vector<TexturePtr> textures);
+		Mesh(const Mesh&) = delete;
 		~Mesh();
 
 		void BindShader(ShaderPtr shader);
