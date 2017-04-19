@@ -6,18 +6,19 @@ namespace game
 {
 	namespace objects
 	{
-		Player::Player(ContentManager* content)
+		Player::Player(ContentManager* content) :
+			m_model(content->GetModel("Shaders/Textured", "Models/RetroRacer/RetroRacer.obj"))
 		{
-			auto shader = content->GetShader("Shaders/Textured");
-			m_model = content->GetModel(shader, "Models/RetroRacer/RetroRacer.obj");
-			m_rotation = 0;
 		}
 
-		void Player::Draw(int elapsedTime, glm::mat4 view, glm::mat4 proj)
+		void Player::Update(int elapsedTime)
 		{
-			m_rotation += glm::radians(elapsedTime / 25.f);
+			m_position.z += elapsedTime / 160.f;
+		}
 
-			glm::mat4 model = glm::rotate(glm::mat4(), m_rotation, glm::vec3(0, 1, 0));
+		void Player::Draw(glm::mat4 view, glm::mat4 proj)
+		{
+			glm::mat4 model = glm::translate(glm::mat4(), m_position);
 
 			m_model->Draw(model, view, proj);
 		}

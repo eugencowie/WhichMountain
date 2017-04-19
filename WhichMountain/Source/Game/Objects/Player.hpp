@@ -5,6 +5,8 @@
 #include "../../Engine/ContentManager.hpp"
 #include "../../Engine/Model.hpp"
 
+#include <glm/glm.hpp>
+
 namespace game
 {
 	namespace objects
@@ -14,11 +16,15 @@ namespace game
 		public:
 			explicit Player(ContentManager* content);
 
-			void Draw(int elapsedTime, glm::mat4 view, glm::mat4 proj);
+			void Update(int elapsedTime);
+			void Draw(glm::mat4 view, glm::mat4 proj);
+
+			glm::vec3 GetPosition() const { return m_position; }
 
 		private:
 			ModelPtr m_model;
-			float m_rotation;
+
+			glm::vec3 m_position;
 		};
 	}
 }

@@ -17,13 +17,15 @@ namespace game
 		{
 			m_window->Close();
 		}
+
+		m_player.Update(elapsedTime);
 	}
 
 	void GameScreen::Draw(int elapsedTime)
 	{
 		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
-		glm::mat4 view = glm::lookAt(glm::vec3(3, 1.5f, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+		glm::mat4 view = glm::lookAt(glm::vec3(3, 1.5f, 3), m_player.GetPosition(), glm::vec3(0, 1, 0));
 
-		m_player.Draw(elapsedTime, view, proj);
+		m_player.Draw(view, proj);
 	}
 }
