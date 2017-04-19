@@ -6,8 +6,10 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
+#include "../Objects/Obstacle.hpp"
 #include "../Objects/Player.hpp"
 
+#include <vector>
 #include <memory>
 
 namespace game
@@ -29,6 +31,8 @@ namespace game
 		private:
 			Window* m_window;
 			InputManager* m_input;
+
+			std::vector<Obstacle> m_obstacles;
 			Player m_player;
 		};
 	}

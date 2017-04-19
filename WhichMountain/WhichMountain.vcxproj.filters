@@ -62,6 +62,9 @@
     <ClCompile Include="Source\Engine\ContentManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Objects\Obstacle.cpp">
+      <Filter>Source Files\Game\Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -99,6 +102,9 @@
     </ClInclude>
     <ClInclude Include="Source\Engine\ContentManager.hpp">
       <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Objects\Obstacle.hpp">
+      <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
