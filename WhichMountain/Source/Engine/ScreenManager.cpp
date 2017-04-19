@@ -25,17 +25,17 @@ namespace engine
 
 	void ScreenManager::Update(int elapsedTime)
 	{
-		for (auto it = m_screens.begin(); it != m_screens.end(); ++it)
+		for (int i = 0; i < m_screens.size(); ++i)
 		{
-			(*it)->Update(elapsedTime);
+			m_screens[i]->Update(elapsedTime);
 		}
 	}
 
 	void ScreenManager::Draw(int elapsedTime)
 	{
-		for (auto it = m_screens.begin(); it != m_screens.end(); ++it)
+		for (int i = 0; i < m_screens.size(); ++i)
 		{
-			(*it)->Draw(elapsedTime);
+			m_screens[i]->Draw(elapsedTime);
 		}
 	}
 }

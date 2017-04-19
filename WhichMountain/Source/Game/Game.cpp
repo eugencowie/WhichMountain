@@ -1,5 +1,5 @@
 #include "Game.hpp"
-#include "Screens/GameScreen.hpp"
+#include "Screens/LoadingScreen.hpp"
 
 #include <GL/glew.h>
 
@@ -18,7 +18,7 @@ namespace game
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		m_screens.Switch(GameScreen::Create(&m_window, &m_input, &m_content));
+		m_screens.Switch(LoadingScreen::Create(&m_window, &m_input, &m_screens, &m_content));
 	}
 
 	void Game::Update(int elapsedTime)

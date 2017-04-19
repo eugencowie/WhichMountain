@@ -65,6 +65,9 @@
     <ClCompile Include="Source\Game\Objects\Obstacle.cpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Screens\LoadingScreen.cpp">
+      <Filter>Source Files\Game\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -105,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Objects\Obstacle.hpp">
       <Filter>Source Files\Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Screens\LoadingScreen.hpp">
+      <Filter>Source Files\Game\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
