@@ -1,29 +1,26 @@
 #pragma once
-#ifndef GAME_SCREENS_GAMESCREEN_HPP
-#define GAME_SCREENS_GAMESCREEN_HPP
+#ifndef GAME_SCREENS_MENUSCREEN_HPP
+#define GAME_SCREENS_MENUSCREEN_HPP
 
 #include "../../Engine/Window.hpp"
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
-#include "../Objects/Obstacle.hpp"
-#include "../Objects/Player.hpp"
 
-#include <vector>
 #include <memory>
 
 namespace game
 {
 	namespace screens
 	{
-		class GameScreen : public IScreen
+		class MenuScreen : public IScreen
 		{
 		public:
 			static IScreenPtr Create(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content) {
-				return std::make_unique<GameScreen>(window, input, screens, content);
+				return std::make_unique<MenuScreen>(window, input, screens, content);
 			}
 
-			GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content);
+			MenuScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content);
 
 			void Update(int elapsedTime) override;
 			void Draw(int elapsedTime) override;
@@ -33,13 +30,10 @@ namespace game
 			InputManager* m_input;
 			ScreenManager* m_screens;
 			ContentManager* m_content;
-
-			std::vector<Obstacle> m_obstacles;
-			Player m_player;
 		};
 	}
 }
 
-using game::screens::GameScreen;
+using game::screens::MenuScreen;
 
 #endif

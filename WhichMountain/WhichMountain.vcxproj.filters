@@ -68,6 +68,9 @@
     <ClCompile Include="Source\Game\Screens\LoadingScreen.cpp">
       <Filter>Source Files\Game\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Game\Screens\MenuScreen.cpp">
+      <Filter>Source Files\Game\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -110,6 +113,9 @@
       <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Source\Game\Screens\LoadingScreen.hpp">
+      <Filter>Source Files\Game\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Game\Screens\MenuScreen.hpp">
       <Filter>Source Files\Game\Screens</Filter>
     </ClInclude>
   </ItemGroup>

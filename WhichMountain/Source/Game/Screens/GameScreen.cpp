@@ -1,12 +1,15 @@
 #include "GameScreen.hpp"
+#include "MenuScreen.hpp"
 
 #include <glm/gtc/matrix_transform.hpp>
 
 namespace game
 {
-	GameScreen::GameScreen(Window* window, InputManager* input, ContentManager* content) :
+	GameScreen::GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content) :
 		m_window(window),
 		m_input(input),
+		m_screens(screens),
+		m_content(content),
 		m_player(content)
 	{
 		m_obstacles.push_back(Obstacle(content, {-5,0,8}, {1,1,1}));
@@ -17,7 +20,7 @@ namespace game
 	{
 		if (m_input->IsJustReleased(SDLK_ESCAPE))
 		{
-			m_window->Close();
+			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
 		}
 
 		m_player.Update(elapsedTime);

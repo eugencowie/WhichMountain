@@ -1,5 +1,6 @@
 #include "LoadingScreen.hpp"
 #include "GameScreen.hpp"
+#include "MenuScreen.hpp"
 
 namespace game
 {
@@ -33,7 +34,8 @@ namespace game
 		{
 			if (m_hasDrawn)
 			{
-				m_screens->Switch(GameScreen::Create(m_window, m_input, m_content));
+				GameScreen::Create(m_window, m_input, m_screens, m_content);
+				m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
 			}
 		}
 
