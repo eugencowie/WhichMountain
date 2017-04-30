@@ -71,6 +71,9 @@
     <ClCompile Include="Source\Game\Screens\MenuScreen.cpp">
       <Filter>Source Files\Game\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Engine\Sprite.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -117,6 +120,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Screens\MenuScreen.hpp">
       <Filter>Source Files\Game\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\Sprite.hpp">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

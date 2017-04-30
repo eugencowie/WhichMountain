@@ -3,6 +3,7 @@
 #define ENGINE_TEXTURE_HPP
 
 #include <GL/glew.h>
+#include <glm/glm.hpp>
 #include <string>
 #include <memory>
 
@@ -25,11 +26,13 @@ namespace engine
 
 		GLuint GetTexture() const { return m_texture; }
 		TextureType GetType() const { return m_type; }
+		glm::vec2 GetSize() const { return m_size; }
 		std::string GetPath() const { return m_path; }
 
 	private:
 		GLuint m_texture;
 		TextureType m_type;
+		glm::vec2 m_size;
 		std::string m_path;
 	};
 }

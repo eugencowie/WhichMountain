@@ -22,6 +22,8 @@ namespace engine
 			std::exit(EXIT_FAILURE);
 		}
 
+		m_size = glm::vec2(width, height);
+
 		glGenTextures(1, &m_texture);
 		glBindTexture(GL_TEXTURE_2D, m_texture);
 

@@ -175,6 +175,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Engine\Model.cpp" />
     <ClCompile Include="Source\Engine\ScreenManager.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
+    <ClCompile Include="Source\Engine\Sprite.cpp" />
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
     <ClCompile Include="Source\Game\Game.cpp" />
@@ -193,6 +194,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClInclude Include="Source\Engine\Model.hpp" />
     <ClInclude Include="Source\Engine\ScreenManager.hpp" />
     <ClInclude Include="Source\Engine\Shader.hpp" />
+    <ClInclude Include="Source\Engine\Sprite.hpp" />
     <ClInclude Include="Source\Engine\Texture.hpp" />
     <ClInclude Include="Source\Engine\Window.hpp" />
     <ClInclude Include="Source\Game\Game.hpp" />

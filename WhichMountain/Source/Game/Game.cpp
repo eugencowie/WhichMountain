@@ -7,7 +7,8 @@ namespace game
 {
 	Game::Game() :
 		m_window("Race to Which Mountain?", 1280, 720),
-		m_content("Content", "../../../../Content")
+		m_content("Content", "../../../../Content"),
+		m_sprite(&m_content, "Shaders/Textured", "Textures/Test.jpg", {1280, 720})
 	{
 		m_window.VerticalSync(true);
 
@@ -35,6 +36,8 @@ namespace game
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		m_screens.Draw(elapsedTime);
+
+		m_sprite.Draw({100, 100});
 
 		m_window.SwapBuffers();
 	}
