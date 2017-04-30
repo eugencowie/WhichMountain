@@ -10,6 +10,7 @@ namespace game
 		m_input(input),
 		m_screens(screens),
 		m_content(content),
+		m_ground(content),
 		m_player(content)
 	{
 		m_obstacles.push_back(Obstacle(content, {-5,0,8}, {1,1,1}));
@@ -36,6 +37,7 @@ namespace game
 			m_obstacles[i].Draw(view, proj);
 		}
 
+		m_ground.Draw(view, proj);
 		m_player.Draw(view, proj);
 	}
 }

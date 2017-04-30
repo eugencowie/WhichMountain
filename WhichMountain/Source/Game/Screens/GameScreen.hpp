@@ -7,6 +7,7 @@
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
 #include "../Objects/Obstacle.hpp"
+#include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
 
 #include <vector>
@@ -35,6 +36,7 @@ namespace game
 			ContentManager* m_content;
 
 			std::vector<Obstacle> m_obstacles;
+			Ground m_ground;
 			Player m_player;
 		};
 	}
