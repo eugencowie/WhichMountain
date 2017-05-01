@@ -11,10 +11,10 @@ namespace game
 		m_screens(screens),
 		m_content(content),
 		m_ground(content),
-		m_player(content)
+		m_player(content, input)
 	{
-		m_obstacles.push_back(Obstacle(content, {-5,0,8}, {1,1,1}));
-		m_obstacles.push_back(Obstacle(content, { 5,0,12}, {1,1,1}));
+		m_obstacles.push_back(Obstacle(content, {-5,0,-12}, {1,1,1}));
+		m_obstacles.push_back(Obstacle(content, { 5,0,-20}, {1,1,1}));
 	}
 
 	void GameScreen::Update(int elapsedTime)
@@ -30,7 +30,7 @@ namespace game
 	void GameScreen::Draw(int elapsedTime)
 	{
 		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
-		glm::mat4 view = glm::lookAt(glm::vec3(3, 1.5f, 3), m_player.GetPosition(), glm::vec3(0, 1, 0));
+		glm::mat4 view = glm::lookAt(m_player.GetPosition() + glm::vec3{0,1,5}, m_player.GetPosition(), glm::vec3(0, 1, 0));
 
 		for (int i = 0; i < m_obstacles.size(); i++)
 		{
