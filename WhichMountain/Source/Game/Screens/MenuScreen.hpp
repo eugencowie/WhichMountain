@@ -6,6 +6,7 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
+#include "../../Engine/Button.hpp"
 
 #include <memory>
 
@@ -30,6 +31,10 @@ namespace game
 			InputManager* m_input;
 			ScreenManager* m_screens;
 			ContentManager* m_content;
+
+			Button m_startButton;
+			Button m_helpButton;
+			Button m_exitButton;
 		};
 	}
 }

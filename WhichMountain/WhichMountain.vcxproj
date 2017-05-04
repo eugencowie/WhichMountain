@@ -168,11 +168,13 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Engine\Button.cpp" />
     <ClCompile Include="Source\Engine\ContentManager.cpp" />
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
     <ClCompile Include="Source\Engine\Mesh.cpp" />
     <ClCompile Include="Source\Engine\Model.cpp" />
+    <ClCompile Include="Source\Engine\Rectangle.cpp" />
     <ClCompile Include="Source\Engine\ScreenManager.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
     <ClCompile Include="Source\Engine\Sprite.cpp" />
@@ -188,11 +190,13 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
     <ClCompile Include="Source\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Engine\Button.hpp" />
     <ClInclude Include="Source\Engine\ContentManager.hpp" />
     <ClInclude Include="Source\Engine\Engine.hpp" />
     <ClInclude Include="Source\Engine\InputManager.hpp" />
     <ClInclude Include="Source\Engine\Mesh.hpp" />
     <ClInclude Include="Source\Engine\Model.hpp" />
+    <ClInclude Include="Source\Engine\Rectangle.hpp" />
     <ClInclude Include="Source\Engine\ScreenManager.hpp" />
     <ClInclude Include="Source\Engine\Shader.hpp" />
     <ClInclude Include="Source\Engine\Sprite.hpp" />
