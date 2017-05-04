@@ -21,11 +21,11 @@ namespace engine
 		}
 	}
 
-	bool InputManager::IsDown(SDL_Keycode key)
+	bool InputManager::IsKeyDown(SDL_Keycode key) const
 	{
-		for (auto pressedKey : m_currKeys)
+		for (auto it = m_currKeys.rbegin(); it != m_currKeys.rend(); ++it)
 		{
-			if (pressedKey == key)
+			if ((*it) == key)
 			{
 				return true;
 			}
@@ -34,11 +34,11 @@ namespace engine
 		return false;
 	}
 
-	bool InputManager::WasDown(SDL_Keycode key)
+	bool InputManager::WasKeyDown(SDL_Keycode key) const
 	{
-		for (auto pressedKey : m_prevKeys)
+		for (auto it = m_prevKeys.rbegin(); it != m_prevKeys.rend(); ++it)
 		{
-			if (pressedKey == key)
+			if ((*it) == key)
 			{
 				return true;
 			}

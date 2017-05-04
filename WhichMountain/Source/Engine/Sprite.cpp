@@ -5,12 +5,12 @@
 namespace engine
 {
 	Sprite::Sprite(ShaderPtr shader, TexturePtr texture, glm::vec2 screen, glm::vec2 origin)
-		: m_origin(origin), m_screen(screen), m_texture(texture), m_mesh(shader, {
+		: m_origin(origin), m_screen(screen), m_texture(texture), m_mesh(Mesh::Create(shader, {
 			{ {-1, 1,0 }, {}, {0,0} },
 			{ { 1, 1,0 }, {}, {1,0} },
 			{ { 1,-1,0 }, {}, {1,1} },
 			{ {-1,-1,0 }, {}, {0,1} },
-		}, {3,2,1,1,0,3}, {texture})
+		}, {3,2,1,1,0,3}, {texture}))
 	{
 	}
 
@@ -27,17 +27,17 @@ namespace engine
 		model = glm::translate(model, ToVec3(ToUnits(FlipY(position * 2.f))));
 
 		// set mesh origin
-		model = glm::translate(model, ToVec3(ToUnits(FlipY(m_texture->GetSize() * -2.f * m_origin))));
+		model = glm::translate(model, ToVec3(ToUnits(FlipY(GetOffset() * -2.f))));
 
 		// set origin to top-left of mesh
-		model = glm::translate(model, ToVec3(ToUnits(FlipY(m_texture->GetSize()))));
+		model = glm::translate(model, ToVec3(ToUnits(FlipY(GetSize()))));
 
 		// move mesh from center to top left of screen
 		model = glm::translate(model, ToVec3({-1,1}));
 
 		// scale mesh down to texture size
-		model = glm::scale(model, ToVec3(ToUnits(m_texture->GetSize())));
+		model = glm::scale(model, ToVec3(ToUnits(GetSize())));
 
-		m_mesh.Draw(model);
+		m_mesh->Draw(model);
 	}
 }

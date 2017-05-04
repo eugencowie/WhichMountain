@@ -19,12 +19,12 @@ namespace game
 			std::vector<TexturePtr> textures = {
 			};
 
-			m_mesh = Mesh::Create(shader, vertices, indices, textures);
+			//m_mesh = Mesh::Create(shader, vertices, indices, textures);
 		}
 
 		void Ground::Draw(glm::mat4 view, glm::mat4 proj)
 		{
-			m_mesh->Draw({}, view, proj);
+			//m_mesh->Draw({}, view, proj);
 		}
 	}
 }

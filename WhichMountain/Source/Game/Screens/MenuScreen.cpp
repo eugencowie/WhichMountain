@@ -15,7 +15,7 @@ namespace game
 
 		void MenuScreen::Update(int elapsedTime)
 		{
-			if (m_input->IsJustReleased(SDLK_RETURN))
+			if (m_input->IsKeyJustReleased(SDLK_RETURN))
 			{
 				m_screens->Switch(GameScreen::Create(m_window, m_input, m_screens, m_content));
 			}

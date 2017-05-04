@@ -6,9 +6,7 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
-#include "../../Engine/Shader.hpp"
-#include "../../Engine/Texture.hpp"
-#include "../../Engine/Mesh.hpp"
+#include "../../Engine/Sprite.hpp"
 
 #include <vector>
 #include <memory>
@@ -35,9 +33,7 @@ namespace game
 			ScreenManager* m_screens;
 			ContentManager* m_content;
 
-			ShaderPtr m_shader;
-			TexturePtr m_texture;
-			MeshPtr m_mesh;
+			Sprite m_sprite;
 			bool m_hasDrawn;
 		};
 	}

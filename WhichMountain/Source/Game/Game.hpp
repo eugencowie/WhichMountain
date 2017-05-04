@@ -7,8 +7,6 @@
 #include "../Engine/ScreenManager.hpp"
 #include "../Engine/ContentManager.hpp"
 
-#include "../Engine/Sprite.hpp"
-
 namespace game
 {
 	class Game
@@ -26,8 +24,6 @@ namespace game
 		InputManager m_input;
 		ScreenManager m_screens;
 		ContentManager m_content;
-
-		Sprite m_sprite;
 	};
 }
 

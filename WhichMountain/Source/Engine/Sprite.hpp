@@ -19,6 +19,9 @@ namespace engine
 
 		void Draw(glm::vec2 position);
 
+		glm::vec2 GetSize() const { return m_texture->GetSize(); }
+		glm::vec2 GetOffset() const { return GetSize() * m_origin; }
+
 	private:
 		glm::vec2 FlipY(glm::vec2 v) const { return v * glm::vec2(1, -1); }
 		glm::vec2 ToUnits(glm::vec2 pixels) const { return pixels / m_screen; }
@@ -29,7 +32,7 @@ namespace engine
 		glm::vec2 m_origin;
 
 		TexturePtr m_texture;
-		Mesh m_mesh;
+		MeshPtr m_mesh;
 	};
 }
 

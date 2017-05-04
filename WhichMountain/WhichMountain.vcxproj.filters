@@ -73,6 +73,7 @@
     </ClCompile>
     <ClCompile Include="Source\Engine\Sprite.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Game\Objects\Ground.cpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClCompile>
@@ -125,6 +126,7 @@
     </ClInclude>
     <ClInclude Include="Source\Engine\Sprite.hpp">
       <Filter>Source Files\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Game\Objects\Ground.hpp">
       <Filter>Source Files\Game\Objects</Filter>
     </ClInclude>

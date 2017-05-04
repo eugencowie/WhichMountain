@@ -19,12 +19,12 @@ namespace game
 
 	void GameScreen::Update(int elapsedTime)
 	{
-		if (m_input->IsJustReleased(SDLK_ESCAPE))
+		m_player.Update(elapsedTime);
+
+		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
 			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
 		}
-
-		m_player.Update(elapsedTime);
 	}
 
 	void GameScreen::Draw(int elapsedTime)

@@ -16,12 +16,12 @@ namespace game
 		{
 			m_position.z -= elapsedTime / 160.f;
 
-			if (m_input->IsDown(SDLK_LEFT) || m_input->IsDown(SDLK_a))
+			if (m_input->IsKeyDown(SDLK_LEFT) || m_input->IsKeyDown(SDLK_a))
 			{
 				m_position.x -= elapsedTime / 160.0f;
 			}
 
-			if (m_input->IsDown(SDLK_RIGHT) || m_input->IsDown(SDLK_d))
+			if (m_input->IsKeyDown(SDLK_RIGHT) || m_input->IsKeyDown(SDLK_d))
 			{
 				m_position.x += elapsedTime / 160.0f;
 			}
