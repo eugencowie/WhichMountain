@@ -169,6 +169,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Engine\Button.cpp" />
+    <ClCompile Include="Source\Engine\Camera.cpp" />
     <ClCompile Include="Source\Engine\ContentManager.cpp" />
     <ClCompile Include="Source\Engine\Engine.cpp" />
     <ClCompile Include="Source\Engine\InputManager.cpp" />
@@ -191,6 +192,7 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Engine\Button.hpp" />
+    <ClInclude Include="Source\Engine\Camera.hpp" />
     <ClInclude Include="Source\Engine\ContentManager.hpp" />
     <ClInclude Include="Source\Engine\Engine.hpp" />
     <ClInclude Include="Source\Engine\InputManager.hpp" />

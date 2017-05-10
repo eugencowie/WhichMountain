@@ -6,6 +6,7 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
+#include "../../Engine/Camera.hpp"
 #include "../Objects/Obstacle.hpp"
 #include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
@@ -34,6 +35,8 @@ namespace game
 			InputManager* m_input;
 			ScreenManager* m_screens;
 			ContentManager* m_content;
+
+			FollowCamera m_camera;
 
 			std::vector<Obstacle> m_obstacles;
 			Ground m_ground;

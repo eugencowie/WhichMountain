@@ -10,6 +10,7 @@ namespace game
 		m_input(input),
 		m_screens(screens),
 		m_content(content),
+		m_camera({0,1,5}),
 		m_ground(content),
 		m_player(content, input)
 	{
@@ -20,6 +21,7 @@ namespace game
 	void GameScreen::Update(int elapsedTime)
 	{
 		m_player.Update(elapsedTime);
+		m_camera.Update(m_player.GetPosition());
 
 		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
@@ -30,7 +32,7 @@ namespace game
 	void GameScreen::Draw(int elapsedTime)
 	{
 		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
-		glm::mat4 view = glm::lookAt(m_player.GetPosition() + glm::vec3{0,1,5}, m_player.GetPosition(), glm::vec3(0, 1, 0));
+		glm::mat4 view = m_camera.GetMatrix();
 
 		for (int i = 0; i < m_obstacles.size(); i++)
 		{
