@@ -18,7 +18,7 @@ namespace game
 			explicit Player(ContentManager* content, InputManager* input);
 
 			void Update(int elapsedTime);
-			void Draw(glm::mat4 view, glm::mat4 proj);
+			void Draw(glm::mat4 view, glm::mat4 proj) const;
 
 			glm::vec3 GetPosition() const { return m_position; }
 

@@ -9,8 +9,8 @@ namespace engine
 
 	bool Rectangle::Contains(glm::vec2 point)
 	{
-		bool containsX = (m_position.x <= point.x && point.x <= m_position.x + m_size.x);
-		bool containsY = (m_position.y <= point.y && point.y <= m_position.y + m_size.y);
+		bool containsX = (GetLeft() <= point.x && point.x <= GetRight());
+		bool containsY = (GetTop() <= point.y && point.y <= GetBottom());
 
 		return (containsX && containsY);
 	}

@@ -27,7 +27,7 @@ namespace game
 			}
 		}
 
-		void Player::Draw(glm::mat4 view, glm::mat4 proj)
+		void Player::Draw(glm::mat4 view, glm::mat4 proj) const
 		{
 			glm::mat4 model = glm::translate(glm::mat4(), m_position);
 

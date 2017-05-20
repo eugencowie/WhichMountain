@@ -15,9 +15,9 @@ namespace engine
 		bool Intersects(Rectangle other);
 
 		glm::vec2 GetPosition() const { return m_position; }
-		void SetPosition(glm::vec2 position) { m_position = position; }
-
 		glm::vec2 GetSize() const { return m_size; }
+
+		void SetPosition(glm::vec2 position) { m_position = position; }
 		void SetSize(glm::vec2 size) { m_size = size; }
 
 		float GetLeft() const { return m_position.x; }

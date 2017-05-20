@@ -6,3 +6,6 @@ Build/
 *.opensdf
 *.VC.db
 *.VC.opendb
+
+Thumbs.db
+.DS_Store
