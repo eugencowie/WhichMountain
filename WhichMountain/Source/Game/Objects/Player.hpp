@@ -28,8 +28,12 @@ namespace game
 			InputManager* m_input;
 
 			ModelPtr m_model;
-
 			glm::vec3 m_position;
+			glm::vec3 m_velocity;
+			float m_targetStrafe;
+
+			enum class State { GROUNDED, JUMPING, FALLING };
+			State m_state;
 		};
 	}
 }
