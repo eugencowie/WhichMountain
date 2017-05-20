@@ -1,3 +1,5 @@
 * text=auto
 
 *.sln text eol=crlf
+
+WhichMountain/Deps/** linguist-vendored
