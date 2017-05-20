@@ -5,6 +5,7 @@
 #include "../../Engine/ContentManager.hpp"
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/Model.hpp"
+#include "../../Engine/BoundingBox.hpp"
 
 #include <glm/glm.hpp>
 
@@ -21,6 +22,7 @@ namespace game
 			void Draw(glm::mat4 view, glm::mat4 proj) const;
 
 			glm::vec3 GetPosition() const { return m_position; }
+			BoundingBox GetBounds() const { return {m_position - 1.0f, glm::vec3(2.0f)}; }
 
 		private:
 			InputManager* m_input;
