@@ -14,8 +14,7 @@ namespace game
 		m_ground(content),
 		m_player(content, input)
 	{
-		m_obstacles.push_back(Obstacle(content, {-5,0,-12}, {1,1,1}));
-		m_obstacles.push_back(Obstacle(content, { 5,0,-20}, {1,1,1}));
+		m_random.seed(std::random_device()());
 	}
 
 	void GameScreen::Update(int elapsedTime)
@@ -24,6 +23,19 @@ namespace game
 		m_camera.Update(m_player.GetPosition());
 
 		m_ground.Update(m_player.GetPosition());
+
+		SpawnObstacle();
+
+		// If the list is empty, it is important to cast size_t to int because size_t(0) - 1 wraps
+		// around to INT_MAX and INT_MAX >= 0 so the for loop is executed with an invalid index.
+		for (int i = static_cast<int>(m_obstacles.size()) - 1; i >= 0; --i)
+		{
+			if (m_obstacles[i]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10 || m_player.GetBounds().Intersects(m_obstacles[i]->GetBounds()))
+			{
+				m_obstacles[i] = m_obstacles[m_obstacles.size() - 1];
+				m_obstacles.pop_back();
+			}
+		}
 
 		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
@@ -36,12 +48,26 @@ namespace game
 		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
 		glm::mat4 view = m_camera.GetMatrix();
 
-		for (int i = 0; i < m_obstacles.size(); i++)
+		for (auto it = m_obstacles.begin(); it != m_obstacles.end(); ++it)
 		{
-			m_obstacles[i].Draw(view, proj);
+			(*it)->Draw(view, proj);
 		}
 
 		m_ground.Draw(view, proj);
 		m_player.Draw(view, proj);
+	}
+
+	void GameScreen::SpawnObstacle()
+	{
+		static std::uniform_int_distribution<std::mt19937::result_type> dist(0, 500);
+
+		int x = dist(m_random) - 250; // range of -250 to 250
+		int y = 0;
+		int z = 100;
+
+		glm::vec3 playerPos = m_player.GetPosition();
+		glm::vec3 spawnPos(playerPos.x + x, y, playerPos.z - z);
+
+		m_obstacles.push_back(std::make_shared<Obstacle>(m_content, spawnPos));
 	}
 }

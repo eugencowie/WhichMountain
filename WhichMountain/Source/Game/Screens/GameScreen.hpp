@@ -13,6 +13,7 @@
 
 #include <vector>
 #include <memory>
+#include <random>
 
 namespace game
 {
@@ -31,6 +32,8 @@ namespace game
 			void Draw(int elapsedTime) override;
 
 		private:
+			void SpawnObstacle();
+
 			Window* m_window;
 			InputManager* m_input;
 			ScreenManager* m_screens;
@@ -38,9 +41,11 @@ namespace game
 
 			FollowCamera m_camera;
 
-			std::vector<Obstacle> m_obstacles;
+			std::vector<std::shared_ptr<Obstacle>> m_obstacles;
 			Ground m_ground;
 			Player m_player;
+
+			std::mt19937 m_random;
 		};
 	}
 }
