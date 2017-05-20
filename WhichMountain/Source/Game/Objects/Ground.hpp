@@ -15,11 +15,15 @@ namespace game
 		public:
 			explicit Ground(ContentManager* content);
 
+			void Update(glm::vec3 playerPosition);
 			void Draw(glm::mat4 view, glm::mat4 proj);
+
+			glm::vec3 GetPosition() const { return m_position; }
 
 		private:
 			ShaderPtr m_shader;
 			MeshPtr m_mesh;
+			glm::vec3 m_position;
 		};
 	}
 }

@@ -23,6 +23,8 @@ namespace game
 		m_player.Update(elapsedTime);
 		m_camera.Update(m_player.GetPosition());
 
+		m_ground.Update(m_player.GetPosition());
+
 		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
 			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
