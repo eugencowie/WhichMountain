@@ -18,16 +18,26 @@ namespace game
 
 		void Player::Update(int elapsedTime)
 		{
+			// Speed
+
+			int speedMultipler = (int)(-m_position.z / 100);
+			if (speedMultipler > 20)
+			{
+				speedMultipler = 20;
+			}
+
+			m_velocity.z = -0.25f - (0.25f * (speedMultipler * 0.5f));
+
 			// Strafing
 
 			m_targetStrafe = 0;
 			if (m_input->IsKeyDown(SDLK_LEFT) || m_input->IsKeyDown(SDLK_a))
 			{
-				m_targetStrafe = -0.25f;
+				m_targetStrafe = m_velocity.z;
 			}
 			else if (m_input->IsKeyDown(SDLK_RIGHT) || m_input->IsKeyDown(SDLK_d))
 			{
-				m_targetStrafe = 0.25f;
+				m_targetStrafe = -m_velocity.z;
 			}
 
 			// Jumping/falling
