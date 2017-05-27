@@ -12,7 +12,7 @@ namespace game
 		m_content(content),
 		m_audio(audio),
 		m_camera({0,1.5f,5}),
-		m_ground(content),
+		m_ground(content, 40),
 		m_player(content, input, audio),
 	{
 		m_random.seed(std::random_device()());

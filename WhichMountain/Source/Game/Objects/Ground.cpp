@@ -7,15 +7,18 @@ namespace game
 {
 	namespace objects
 	{
-		Ground::Ground(ContentManager* content)
+		Ground::Ground(ContentManager* content, float size) :
+			m_position(0, -1, 0),
+			m_size(size)
 		{
 			auto shader = content->GetShader("Shaders/Textured");
 
+			float half = m_size / 2.0f;
 			std::vector<Vertex> vertices = {
-				{ {-10,-1,-10}, {}, {0,0} },
-				{ { 10,-1,-10}, {}, {1,0} },
-				{ { 10,-1, 10}, {}, {1,1} },
-				{ {-10,-1, 10}, {}, {0,1} },
+				{ {-half,0,-half}, {}, {0,0} },
+				{ { half,0,-half}, {}, {1,0} },
+				{ { half,0, half}, {}, {1,1} },
+				{ {-half,0, half}, {}, {0,1} },
 			};
 
 			std::vector<GLuint> indices = {
@@ -30,31 +33,37 @@ namespace game
 
 		void Ground::Update(glm::vec3 playerPosition)
 		{
-			if (playerPosition.z < m_position.z - 10)
+			float half = m_size / 2.0f;
+
+			if (playerPosition.z < m_position.z - half)
 			{
-				m_position.z -= 10;
+				m_position.z -= half;
+			}
+			else if (playerPosition.z > m_position.z + half)
+			{
+				m_position.z += half;
 			}
 
-			if (playerPosition.x < m_position.x - 10)
+			if (playerPosition.x < m_position.x - half)
 			{
-				m_position.x -= 10;
+				m_position.x -= half;
 			}
-
-			if (playerPosition.x > m_position.x + 10)
+			else if (playerPosition.x > m_position.x + half)
 			{
-				m_position.x += 10;
+				m_position.x += half;
 			}
 		}
 
 		void Ground::Draw(glm::mat4 view, glm::mat4 proj)
 		{
-			glm::mat4 model = glm::translate(glm::mat4(), m_position);
-
-			for (int x = -5; x < 5; ++x)
+			// Draw the ground as a 6x6 grid.
+			static const int halfGrid = 3;
+			for (int x = -halfGrid; x <= halfGrid; ++x)
 			{
-				for (int z = -5; z < 5; ++z)
+				for (int z = -halfGrid; z <= halfGrid; ++z)
 				{
-					m_mesh->Draw(glm::translate(model, glm::vec3(x*20,0,z*20)), view, proj);
+					glm::mat4 model = glm::translate(glm::mat4(), m_position + glm::vec3(x * m_size, 0, z * m_size));
+					m_mesh->Draw(model, view, proj);
 				}
 			}
 		}

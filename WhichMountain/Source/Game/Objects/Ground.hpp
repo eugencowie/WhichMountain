@@ -13,7 +13,7 @@ namespace game
 		class Ground
 		{
 		public:
-			explicit Ground(ContentManager* content);
+			Ground(ContentManager* content, float size=20);
 
 			void Update(glm::vec3 playerPosition);
 			void Draw(glm::mat4 view, glm::mat4 proj);
@@ -24,6 +24,7 @@ namespace game
 			ShaderPtr m_shader;
 			MeshPtr m_mesh;
 			glm::vec3 m_position;
+			float m_size;
 		};
 	}
 }
