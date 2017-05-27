@@ -28,6 +28,7 @@ namespace game
 			}
 
 			GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio);
+			~GameScreen();
 
 			void Update(int elapsedTime) override;
 			void Draw(int elapsedTime) override;
@@ -46,6 +47,9 @@ namespace game
 			std::vector<std::shared_ptr<Obstacle>> m_obstacles;
 			Ground m_ground;
 			Player m_player;
+
+			irrklang::ISound* m_bgMusic;
+			bool m_musicPlaying;
 
 			std::mt19937 m_random;
 		};

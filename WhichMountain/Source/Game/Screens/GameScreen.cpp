@@ -18,8 +18,19 @@ namespace game
 		m_random.seed(std::random_device()());
 	}
 
+	GameScreen::~GameScreen()
+	{
+		m_audio->StopAll();
+	}
+
 	void GameScreen::Update(int elapsedTime)
 	{
+		if (!m_musicPlaying)
+		{
+			m_bgMusic = m_audio->PlaySound("../../../../Content/Audio/Killers.ogg", true);
+			m_musicPlaying = true;
+		}
+
 		m_player.Update(elapsedTime);
 		m_camera.Update(m_player.GetPosition());
 
