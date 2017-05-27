@@ -6,6 +6,7 @@
 #include "../Engine/InputManager.hpp"
 #include "../Engine/ScreenManager.hpp"
 #include "../Engine/ContentManager.hpp"
+#include "../Engine/AudioManager.hpp"
 
 namespace game
 {
@@ -24,6 +25,7 @@ namespace game
 		InputManager m_input;
 		ScreenManager m_screens;
 		ContentManager m_content;
+		AudioManager m_audio;
 	};
 }
 

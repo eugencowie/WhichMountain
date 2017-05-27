@@ -183,6 +183,7 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
     <ClCompile Include="Source\Engine\Rectangle.cpp" />
     <ClCompile Include="Source\Engine\ScreenManager.cpp" />
     <ClCompile Include="Source\Engine\Shader.cpp" />
+    <ClCompile Include="Source\Engine\AudioManager.cpp" />
     <ClCompile Include="Source\Engine\Sprite.cpp" />
     <ClCompile Include="Source\Engine\Texture.cpp" />
     <ClCompile Include="Source\Engine\Window.cpp" />
@@ -207,6 +208,7 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
     <ClInclude Include="Source\Engine\Rectangle.hpp" />
     <ClInclude Include="Source\Engine\ScreenManager.hpp" />
     <ClInclude Include="Source\Engine\Shader.hpp" />
+    <ClInclude Include="Source\Engine\AudioManager.hpp" />
     <ClInclude Include="Source\Engine\Sprite.hpp" />
     <ClInclude Include="Source\Engine\Texture.hpp" />
     <ClInclude Include="Source\Engine\Window.hpp" />

@@ -6,6 +6,7 @@
 #include "../../Engine/InputManager.hpp"
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
+#include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Sprite.hpp"
 
 #include <vector>
@@ -18,11 +19,11 @@ namespace game
 		class LoadingScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content) {
-				return std::make_unique<LoadingScreen>(window, input, screens, content);
+			static IScreenPtr Create(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) {
+				return std::make_unique<LoadingScreen>(window, input, screens, content, audio);
 			}
 
-			LoadingScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content);
+			LoadingScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio);
 
 			void Update(int elapsedTime) override;
 			void Draw(int elapsedTime) override;
@@ -32,6 +33,7 @@ namespace game
 			InputManager* m_input;
 			ScreenManager* m_screens;
 			ContentManager* m_content;
+			AudioManager* m_audio;
 
 			Sprite m_sprite;
 			bool m_hasDrawn;

@@ -5,11 +5,12 @@
 
 namespace game
 {
-	GameScreen::GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content) :
+	GameScreen::GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) :
 		m_window(window),
 		m_input(input),
 		m_screens(screens),
 		m_content(content),
+		m_audio(audio),
 		m_camera({0,1.5f,5}),
 		m_ground(content),
 		m_player(content, input)
@@ -39,7 +40,7 @@ namespace game
 
 		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
-			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
+			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
 		}
 	}
 

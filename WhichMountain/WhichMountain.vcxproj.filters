@@ -89,6 +89,9 @@
     <ClCompile Include="Source\Engine\BoundingBox.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Engine\AudioManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -152,6 +155,9 @@
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Source\Engine\BoundingBox.hpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\AudioManager.hpp">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

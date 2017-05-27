@@ -6,11 +6,12 @@ namespace game
 {
 	namespace screens
 	{
-		LoadingScreen::LoadingScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content) :
+		LoadingScreen::LoadingScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) :
 			m_window(window),
 			m_input(input),
 			m_screens(screens),
 			m_content(content),
+			m_audio(audio),
 			m_sprite(m_content, "Shaders/Textured", "Textures/Loading.png", {1280, 720}),
 			m_hasDrawn(false)
 		{
@@ -20,8 +21,8 @@ namespace game
 		{
 			if (m_hasDrawn)
 			{
-				GameScreen::Create(m_window, m_input, m_screens, m_content);
-				m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content));
+				GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio);
+				m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
 			}
 		}
 
