@@ -90,18 +90,19 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
 xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio\irrKlang.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -109,18 +110,19 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
 xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio\irrKlang.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,19 +132,20 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
 xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio\irrKlang.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -152,19 +155,20 @@ xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Comm
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
 xcopy /y "$(ProjectDir)Deps\glew\bin\Release\$(Platform)\glew32.dll" "$(OutDir)"
-xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"</Command>
+xcopy /y "$(ProjectDir)Deps\assimp\lib\$(Platform)\assimp.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio\irrKlang.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
