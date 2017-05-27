@@ -4,6 +4,7 @@
 
 #include "../../Engine/ContentManager.hpp"
 #include "../../Engine/InputManager.hpp"
+#include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Model.hpp"
 #include "../../Engine/BoundingBox.hpp"
 
@@ -16,7 +17,7 @@ namespace game
 		class Player
 		{
 		public:
-			explicit Player(ContentManager* content, InputManager* input);
+			Player(ContentManager* content, InputManager* input, AudioManager* audio);
 
 			void Update(int elapsedTime);
 			void Draw(glm::mat4 view, glm::mat4 proj) const;
@@ -26,6 +27,7 @@ namespace game
 
 		private:
 			InputManager* m_input;
+			AudioManager* m_audio;
 
 			ModelPtr m_model;
 			glm::vec3 m_position;

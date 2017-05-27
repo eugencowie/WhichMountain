@@ -7,8 +7,9 @@ namespace game
 {
 	namespace objects
 	{
-		Player::Player(ContentManager* content, InputManager* input) :
+		Player::Player(ContentManager* content, InputManager* input, AudioManager* audio) :
 			m_input(input),
+			m_audio(audio),
 			m_model(content->GetModel("Shaders/Textured", "Models/RetroRacer/RetroRacer.obj")),
 			m_velocity(0, 0, -0.25f),
 			m_state(State::GROUNDED)
@@ -41,6 +42,7 @@ namespace game
 				{
 					m_velocity.y = jumpSpd;
 					m_state = State::JUMPING;
+					m_audio->PlaySound("../../../../Content/Audio/Jump.wav");
 				}
 			}
 			else if (m_state == State::JUMPING)
