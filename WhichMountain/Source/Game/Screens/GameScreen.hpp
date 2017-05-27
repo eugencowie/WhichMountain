@@ -8,6 +8,7 @@
 #include "../../Engine/ContentManager.hpp"
 #include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Camera.hpp"
+#include "../../Engine/Sprite.hpp"
 #include "../Objects/Obstacle.hpp"
 #include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
@@ -48,10 +49,14 @@ namespace game
 			Ground m_ground;
 			Player m_player;
 
+			Sprite m_gameOver;
+
 			irrklang::ISound* m_bgMusic;
 			bool m_musicPlaying;
 
 			std::mt19937 m_random;
+
+			bool m_isGameOver;
 		};
 	}
 }

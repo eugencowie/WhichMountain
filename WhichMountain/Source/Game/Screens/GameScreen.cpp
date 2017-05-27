@@ -14,6 +14,7 @@ namespace game
 		m_camera({0,1.5f,5}),
 		m_ground(content, 40),
 		m_player(content, input, audio),
+		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720})
 	{
 		m_random.seed(std::random_device()());
 	}
@@ -25,33 +26,42 @@ namespace game
 
 	void GameScreen::Update(int elapsedTime)
 	{
-		if (!m_musicPlaying)
-		{
-			m_bgMusic = m_audio->PlaySound("../../../../Content/Audio/Killers.ogg", true);
-			m_musicPlaying = true;
-		}
-
-		m_player.Update(elapsedTime);
-		m_camera.Update(m_player.GetPosition());
-
-		m_ground.Update(m_player.GetPosition());
-
-		SpawnObstacle();
-
-		// If the list is empty, it is important to cast size_t to int because size_t(0) - 1 wraps
-		// around to INT_MAX and INT_MAX >= 0 so the for loop is executed with an invalid index.
-		for (int i = static_cast<int>(m_obstacles.size()) - 1; i >= 0; --i)
-		{
-			if (m_obstacles[i]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10 || m_player.GetBounds().Intersects(m_obstacles[i]->GetBounds()))
-			{
-				m_obstacles[i] = m_obstacles[m_obstacles.size() - 1];
-				m_obstacles.pop_back();
-			}
-		}
-
 		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
 		{
 			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+		}
+
+		if (!m_isGameOver)
+		{
+			if (!m_musicPlaying)
+			{
+				m_bgMusic = m_audio->PlaySound("../../../../Content/Audio/Killers.ogg", true);
+				m_musicPlaying = true;
+			}
+
+			m_player.Update(elapsedTime);
+			m_camera.Update(m_player.GetPosition());
+
+			m_ground.Update(m_player.GetPosition());
+
+			SpawnObstacle();
+
+			// If the list is empty, it is important to cast size_t to int because size_t(0) - 1 wraps
+			// around to INT_MAX and INT_MAX >= 0 so the for loop is executed with an invalid index.
+			for (int i = static_cast<int>(m_obstacles.size()) - 1; i >= 0; --i)
+			{
+				if (m_player.GetBounds().Intersects(m_obstacles[i]->GetBounds()))
+				{
+					m_isGameOver = true;
+				}
+
+				// Remove obstacles which the player has passed.
+				if (m_obstacles[i]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10)
+				{
+					m_obstacles[i] = m_obstacles[m_obstacles.size() - 1];
+					m_obstacles.pop_back();
+				}
+			}
 		}
 	}
 
@@ -66,7 +76,15 @@ namespace game
 		}
 
 		m_ground.Draw(view, proj);
-		m_player.Draw(view, proj);
+
+		if (!m_isGameOver)
+		{
+			m_player.Draw(view, proj);
+		}
+		else
+		{
+			m_gameOver.Draw({0,0});
+		}
 	}
 
 	void GameScreen::SpawnObstacle()
