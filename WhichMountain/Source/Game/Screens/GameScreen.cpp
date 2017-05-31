@@ -56,19 +56,17 @@ namespace game
 
 			SpawnObstacle();
 
-			// If the list is empty, it is important to cast size_t to int because size_t(0) - 1 wraps
-			// around to INT_MAX and INT_MAX >= 0 so the for loop is executed with an invalid index.
-			for (int i = static_cast<int>(m_obstacles.size()) - 1; i >= 0; --i)
+			for (size_t i = m_obstacles.size(); i > 0; --i)
 			{
-				if (m_player.GetBounds().Intersects(m_obstacles[i]->GetBounds()))
+				if (m_player.GetBounds().Intersects(m_obstacles[i-1]->GetBounds()))
 				{
 					m_isGameOver = true;
 				}
 
 				// Remove obstacles which the player has passed.
-				if (m_obstacles[i]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10)
+				if (m_obstacles[i-1]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10)
 				{
-					m_obstacles[i] = m_obstacles[m_obstacles.size() - 1];
+					m_obstacles[i-1] = m_obstacles[m_obstacles.size() - 1];
 					m_obstacles.pop_back();
 				}
 			}
