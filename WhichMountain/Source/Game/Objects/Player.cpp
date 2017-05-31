@@ -7,10 +7,10 @@ namespace game
 {
 	namespace objects
 	{
-		Player::Player(ContentManager* content, InputManager* input, AudioManager* audio) :
+		Player::Player(ContentManager& content, InputManager& input, AudioManager& audio) :
 			m_input(input),
 			m_audio(audio),
-			m_model(content->GetModel("Shaders/Textured", "Models/RetroRacer/RetroRacer.obj")),
+			m_model(content.GetModel("Shaders/Textured", "Models/RetroRacer/RetroRacer.obj")),
 			m_velocity(0, 0, -0.25f),
 			m_state(State::GROUNDED)
 		{
@@ -31,11 +31,11 @@ namespace game
 			// Strafing
 
 			m_targetStrafe = 0;
-			if (m_input->IsKeyDown(SDLK_LEFT) || m_input->IsKeyDown(SDLK_a))
+			if (m_input.IsKeyDown(SDLK_LEFT) || m_input.IsKeyDown(SDLK_a))
 			{
 				m_targetStrafe = m_velocity.z;
 			}
-			else if (m_input->IsKeyDown(SDLK_RIGHT) || m_input->IsKeyDown(SDLK_d))
+			else if (m_input.IsKeyDown(SDLK_RIGHT) || m_input.IsKeyDown(SDLK_d))
 			{
 				m_targetStrafe = -m_velocity.z;
 			}
@@ -48,11 +48,11 @@ namespace game
 
 			if (m_state == State::GROUNDED)
 			{
-				if (m_input->IsKeyJustPressed(SDLK_SPACE))
+				if (m_input.IsKeyJustPressed(SDLK_SPACE))
 				{
 					m_velocity.y = jumpSpd;
 					m_state = State::JUMPING;
-					m_audio->PlaySound("../../../../Content/Audio/Jump.wav");
+					m_audio.PlaySound("../../../../Content/Audio/Jump.wav");
 				}
 			}
 			else if (m_state == State::JUMPING)

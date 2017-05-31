@@ -5,7 +5,7 @@
 
 namespace game
 {
-	GameScreen::GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) :
+	GameScreen::GameScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) :
 		m_window(window),
 		m_input(input),
 		m_screens(screens),
@@ -21,21 +21,22 @@ namespace game
 
 	GameScreen::~GameScreen()
 	{
-		m_audio->StopAll();
+		m_audio.StopAll();
 	}
 
 	void GameScreen::Update(int elapsedTime)
 	{
-		if (m_input->IsKeyJustReleased(SDLK_ESCAPE))
+		if (m_input.IsKeyJustReleased(SDLK_ESCAPE))
 		{
-			m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+			m_screens.Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+			return;
 		}
 
 		if (!m_isGameOver)
 		{
 			if (!m_musicPlaying)
 			{
-				m_bgMusic = m_audio->PlaySound("../../../../Content/Audio/Killers.ogg", true);
+				m_bgMusic = m_audio.PlaySound("../../../../Content/Audio/Killers.ogg", true);
 				m_musicPlaying = true;
 			}
 

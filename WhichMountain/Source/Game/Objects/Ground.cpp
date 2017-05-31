@@ -7,11 +7,11 @@ namespace game
 {
 	namespace objects
 	{
-		Ground::Ground(ContentManager* content, float size) :
+		Ground::Ground(ContentManager& content, float size) :
 			m_position(0, -1, 0),
 			m_size(size)
 		{
-			auto shader = content->GetShader("Shaders/Textured");
+			auto shader = content.GetShader("Shaders/Textured");
 
 			float half = m_size / 2.0f;
 			std::vector<Vertex> vertices = {
@@ -26,7 +26,7 @@ namespace game
 				1,0,3
 			};
 
-			TexturePtr texture = content->GetTexture("Textures/Ground.jpg", TextureType::DIFFUSE);
+			TexturePtr texture = content.GetTexture("Textures/Ground.jpg", TextureType::DIFFUSE);
 
 			m_mesh = Mesh::Create(shader, vertices, indices, {texture});
 		}

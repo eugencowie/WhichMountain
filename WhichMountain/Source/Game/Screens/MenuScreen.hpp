@@ -18,21 +18,21 @@ namespace game
 		class MenuScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) {
+			static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) {
 				return std::make_unique<MenuScreen>(window, input, screens, content, audio);
 			}
 
-			MenuScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio);
+			MenuScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio);
 
 			void Update(int elapsedTime) override;
 			void Draw(int elapsedTime) override;
 
 		private:
-			Window* m_window;
-			InputManager* m_input;
-			ScreenManager* m_screens;
-			ContentManager* m_content;
-			AudioManager* m_audio;
+			Window& m_window;
+			InputManager& m_input;
+			ScreenManager& m_screens;
+			ContentManager& m_content;
+			AudioManager& m_audio;
 
 			Button m_startButton;
 			Button m_helpButton;

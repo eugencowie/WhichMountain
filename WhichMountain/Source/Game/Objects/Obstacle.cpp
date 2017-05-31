@@ -6,8 +6,8 @@ namespace game
 {
 	namespace objects
 	{
-		Obstacle::Obstacle(ContentManager* content, glm::vec3 position, glm::vec3 size) :
-			m_model(content->GetModel("Shaders/Textured", "Models/Obstacles/Obstacle_1.obj")),
+		Obstacle::Obstacle(ContentManager& content, glm::vec3 position, glm::vec3 size) :
+			m_model(content.GetModel("Shaders/Textured", "Models/Obstacles/Obstacle_1.obj")),
 			m_position(position),
 			m_size(size)
 		{

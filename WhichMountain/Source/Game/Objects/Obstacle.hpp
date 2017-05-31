@@ -15,7 +15,7 @@ namespace game
 		class Obstacle
 		{
 		public:
-			explicit Obstacle(ContentManager* content, glm::vec3 position, glm::vec3 size = {1,1,1});
+			Obstacle(ContentManager& content, glm::vec3 position, glm::vec3 size = {1,1,1});
 
 			void Draw(glm::mat4 view, glm::mat4 proj);
 

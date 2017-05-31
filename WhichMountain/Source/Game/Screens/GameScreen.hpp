@@ -24,11 +24,11 @@ namespace game
 		class GameScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) {
+			static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) {
 				return std::make_unique<GameScreen>(window, input, screens, content, audio);
 			}
 
-			GameScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio);
+			GameScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio);
 			~GameScreen();
 
 			void Update(int elapsedTime) override;
@@ -37,11 +37,11 @@ namespace game
 		private:
 			void SpawnObstacle();
 
-			Window* m_window;
-			InputManager* m_input;
-			ScreenManager* m_screens;
-			ContentManager* m_content;
-			AudioManager* m_audio;
+			Window& m_window;
+			InputManager& m_input;
+			ScreenManager& m_screens;
+			ContentManager& m_content;
+			AudioManager& m_audio;
 
 			FollowCamera m_camera;
 

@@ -15,18 +15,18 @@ namespace engine
 	{
 	}
 
-	Button::Button(ContentManager* content, const char* shader, const char* texture, const char* hover, glm::vec2 position, glm::vec2 screen, glm::vec2 origin) :
+	Button::Button(ContentManager& content, const char* shader, const char* texture, const char* hover, glm::vec2 position, glm::vec2 screen, glm::vec2 origin) :
 		Button(Sprite(content, shader, texture, screen, origin), Sprite(content, shader, hover, screen, origin), position)
 	{
 	}
 
-	void Button::Update(InputManager* input)
+	void Button::Update(InputManager& input)
 	{
-		m_hovering = m_bounds.Contains(input->GetMousePos());
+		m_hovering = m_bounds.Contains(input.GetMousePos());
 
 		if (m_state == ButtonState::NOT_PRESSED)
 		{
-			if (m_hovering && input->IsBtnJustPressed(SDL_BUTTON_LEFT))
+			if (m_hovering && input.IsBtnJustPressed(SDL_BUTTON_LEFT))
 			{
 				m_state = ButtonState::PRESSED;
 			}
@@ -37,7 +37,7 @@ namespace engine
 			{
 				m_state = ButtonState::NOT_PRESSED;
 			}
-			else if (input->IsBtnJustReleased(SDL_BUTTON_LEFT))
+			else if (input.IsBtnJustReleased(SDL_BUTTON_LEFT))
 			{
 				m_state = ButtonState::CLICKED;
 			}

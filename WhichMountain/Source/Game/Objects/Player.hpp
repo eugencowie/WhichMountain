@@ -17,7 +17,7 @@ namespace game
 		class Player
 		{
 		public:
-			Player(ContentManager* content, InputManager* input, AudioManager* audio);
+			Player(ContentManager& content, InputManager& input, AudioManager& audio);
 
 			void Update(int elapsedTime);
 			void Draw(glm::mat4 view, glm::mat4 proj) const;
@@ -26,8 +26,8 @@ namespace game
 			BoundingBox GetBounds() const { return {m_position - 1.0f, glm::vec3(2.0f)}; }
 
 		private:
-			InputManager* m_input;
-			AudioManager* m_audio;
+			InputManager& m_input;
+			AudioManager& m_audio;
 
 			ModelPtr m_model;
 			glm::vec3 m_position;

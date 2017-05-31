@@ -6,7 +6,7 @@ namespace game
 {
 	namespace screens
 	{
-		LoadingScreen::LoadingScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) :
+		LoadingScreen::LoadingScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) :
 			m_window(window),
 			m_input(input),
 			m_screens(screens),
@@ -22,7 +22,7 @@ namespace game
 			if (m_hasDrawn)
 			{
 				GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio);
-				m_screens->Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+				m_screens.Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
 			}
 		}
 

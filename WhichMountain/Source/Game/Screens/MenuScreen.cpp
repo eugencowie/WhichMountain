@@ -5,7 +5,7 @@ namespace game
 {
 	namespace screens
 	{
-		MenuScreen::MenuScreen(Window* window, InputManager* input, ScreenManager* screens, ContentManager* content, AudioManager* audio) :
+		MenuScreen::MenuScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) :
 			m_window(window),
 			m_input(input),
 			m_screens(screens),
@@ -25,7 +25,7 @@ namespace game
 
 			if (m_startButton.IsClicked())
 			{
-				m_screens->Switch(GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+				m_screens.Switch(GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
 			}
 
 			if (m_helpButton.IsClicked())
@@ -35,7 +35,7 @@ namespace game
 
 			if (m_exitButton.IsClicked())
 			{
-				m_window->Close();
+				m_window.Close();
 			}
 		}
 

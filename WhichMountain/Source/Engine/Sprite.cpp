@@ -14,8 +14,8 @@ namespace engine
 	{
 	}
 
-	Sprite::Sprite(ContentManager* content, const char* shader, const char* texture, glm::vec2 screenSize, glm::vec2 origin)
-		: Sprite(content->GetShader(shader), content->GetTexture(texture, TextureType::DIFFUSE), screenSize, origin)
+	Sprite::Sprite(ContentManager& content, const char* shader, const char* texture, glm::vec2 screenSize, glm::vec2 origin)
+		: Sprite(content.GetShader(shader), content.GetTexture(texture, TextureType::DIFFUSE), screenSize, origin)
 	{
 	}
 
