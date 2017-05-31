@@ -32,7 +32,16 @@ namespace game
 			return;
 		}
 
-		if (!m_isGameOver)
+		if (m_isGameOver)
+		{
+			if (m_input.IsKeyJustReleased(SDLK_RETURN))
+			{
+				// really lazy way of restarting the game
+				m_screens.Switch(game::screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
+				return;
+			}
+		}
+		else
 		{
 			if (!m_musicPlaying)
 			{
