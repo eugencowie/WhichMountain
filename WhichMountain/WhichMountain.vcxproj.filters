@@ -161,4 +161,9 @@
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Game\Screens\Helper.hpp">
+      <Filter>Source Files\Game\Screens</Filter>
+    </None>
+  </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@ namespace game
 	{
 		if (m_input.IsKeyJustReleased(SDLK_ESCAPE))
 		{
-			m_screens.Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+			m_screens.Switch(game::screens::Create<MenuScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			return;
 		}
 

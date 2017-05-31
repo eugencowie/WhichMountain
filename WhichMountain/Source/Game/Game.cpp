@@ -18,7 +18,7 @@ namespace game
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-		m_screens.Switch(LoadingScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+		m_screens.Switch(game::screens::Create<LoadingScreen>(m_window, m_input, m_screens, m_content, m_audio));
 	}
 
 	void Game::Update(int elapsedTime)

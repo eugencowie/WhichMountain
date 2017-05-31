@@ -21,8 +21,8 @@ namespace game
 		{
 			if (m_hasDrawn)
 			{
-				GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio);
-				m_screens.Switch(MenuScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+				game::screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio);
+				m_screens.Switch(game::screens::Create<MenuScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			}
 		}
 

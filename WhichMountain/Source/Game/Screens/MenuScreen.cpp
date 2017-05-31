@@ -25,7 +25,7 @@ namespace game
 
 			if (m_startButton.IsClicked())
 			{
-				m_screens.Switch(GameScreen::Create(m_window, m_input, m_screens, m_content, m_audio));
+				m_screens.Switch(game::screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			}
 
 			if (m_helpButton.IsClicked())

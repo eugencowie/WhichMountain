@@ -9,6 +9,7 @@
 #include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Button.hpp"
 
+#include "Helper.hpp"
 #include <memory>
 
 namespace game
@@ -18,10 +19,6 @@ namespace game
 		class MenuScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) {
-				return std::make_unique<MenuScreen>(window, input, screens, content, audio);
-			}
-
 			MenuScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio);
 
 			void Update(int elapsedTime) override;

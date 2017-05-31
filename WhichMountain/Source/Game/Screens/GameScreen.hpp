@@ -13,6 +13,7 @@
 #include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
 
+#include "Helper.hpp"
 #include <vector>
 #include <memory>
 #include <random>
@@ -24,10 +25,6 @@ namespace game
 		class GameScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) {
-				return std::make_unique<GameScreen>(window, input, screens, content, audio);
-			}
-
 			GameScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio);
 			~GameScreen();
 

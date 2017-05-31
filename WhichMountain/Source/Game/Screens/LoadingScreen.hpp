@@ -9,6 +9,7 @@
 #include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Sprite.hpp"
 
+#include "Helper.hpp"
 #include <vector>
 #include <memory>
 
@@ -19,10 +20,6 @@ namespace game
 		class LoadingScreen : public IScreen
 		{
 		public:
-			static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) {
-				return std::make_unique<LoadingScreen>(window, input, screens, content, audio);
-			}
-
 			LoadingScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio);
 
 			void Update(int elapsedTime) override;

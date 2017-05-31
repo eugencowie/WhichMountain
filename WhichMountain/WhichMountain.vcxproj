@@ -220,6 +220,9 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
     <ClInclude Include="Source\Game\Screens\LoadingScreen.hpp" />
     <ClInclude Include="Source\Game\Screens\MenuScreen.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Source\Game\Screens\Helper.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
