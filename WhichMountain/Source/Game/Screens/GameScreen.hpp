@@ -22,6 +22,9 @@ namespace game
 {
 	namespace screens
 	{
+		/**
+		 * The game screen, where the gameplay happens.
+		 */
 		class GameScreen : public IScreen
 		{
 		public:

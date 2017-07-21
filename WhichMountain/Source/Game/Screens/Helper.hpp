@@ -8,6 +8,9 @@ namespace game
 {
 	namespace screens
 	{
+		/**
+		 * Create a new instance of a screen and return a unique pointer to it.
+		 */
 		template<typename T>
 		static std::unique_ptr<T> Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio)
 		{

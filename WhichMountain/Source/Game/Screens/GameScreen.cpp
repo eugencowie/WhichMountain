@@ -5,6 +5,9 @@
 
 namespace game
 {
+	/**
+	 * Create an instance of the class.
+	 */
 	GameScreen::GameScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) :
 		m_window(window),
 		m_input(input),
@@ -16,18 +19,27 @@ namespace game
 		m_player(content, input, audio),
 		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720})
 	{
+		// Create the random number generator.
 		m_random.seed(std::random_device()());
 	}
 
+	/**
+	 * Called when an instance of the class is destroyed.
+	 */
 	GameScreen::~GameScreen()
 	{
+		// Stop any playing audio.
 		m_audio.StopAll();
 	}
 
+	/**
+	 * Called when the screen should update.
+	 */
 	void GameScreen::Update(int elapsedTime)
 	{
 		if (m_input.IsKeyJustReleased(SDLK_ESCAPE))
 		{
+			// Switch back to the menu.
 			m_screens.Switch(screens::Create<MenuScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			return;
 		}
@@ -36,7 +48,7 @@ namespace game
 		{
 			if (m_input.IsKeyJustReleased(SDLK_RETURN))
 			{
-				// really lazy way of restarting the game
+				// Really lazy way of restarting the game.
 				m_screens.Switch(screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
 				return;
 			}
@@ -45,19 +57,24 @@ namespace game
 		{
 			if (!m_musicPlaying)
 			{
+				// Start playing music.
 				m_bgMusic = m_audio.PlaySound("Content/Audio/Killers.ogg", true);
 				m_musicPlaying = true;
 			}
 
+			// Update player, camera, ground.
 			m_player.Update(elapsedTime);
 			m_camera.Update(m_player.GetPosition());
 
 			m_ground.Update(m_player.GetPosition());
 
+			// Spawn a new obstacle.
 			SpawnObstacle();
 
+			// Obstacles
 			for (size_t i = m_obstacles.size(); i > 0; --i)
 			{
+				// Check if player has collided with obstacle.
 				if (m_player.GetBounds().Intersects(m_obstacles[i-1]->GetBounds()))
 				{
 					m_isGameOver = true;
@@ -73,28 +90,41 @@ namespace game
 		}
 	}
 
+	/**
+	 * Called when the screen should draw.
+	 */
 	void GameScreen::Draw(int elapsedTime)
 	{
+		// Create projection matrix (field of view, aspect ratio, near/far planes).
 		glm::mat4 proj = glm::perspective(glm::radians(45.f), 1280 / 720.f, 0.1f, 100.f);
+
+		// Get the view matrix (camera).
 		glm::mat4 view = m_camera.GetMatrix();
 
+		// Draw all of the obstacles.
 		for (auto it = m_obstacles.begin(); it != m_obstacles.end(); ++it)
 		{
 			(*it)->Draw(view, proj);
 		}
 
+		// Draw the ground.
 		m_ground.Draw(view, proj);
 
 		if (!m_isGameOver)
 		{
+			// Draw player if game is not over.
 			m_player.Draw(view, proj);
 		}
 		else
 		{
+			// Draw game over screen.
 			m_gameOver.Draw({0,0});
 		}
 	}
 
+	/**
+	 * Spawn a new obstacle in a random position ahead of the player.
+	 */
 	void GameScreen::SpawnObstacle()
 	{
 		static std::uniform_int_distribution<std::mt19937::result_type> dist(0, 500);

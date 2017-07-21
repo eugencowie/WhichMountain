@@ -16,6 +16,9 @@ namespace game
 {
 	namespace screens
 	{
+		/**
+		 * The main menu screen, where players can start a level or exit the game.
+		 */
 		class MenuScreen : public IScreen
 		{
 		public:

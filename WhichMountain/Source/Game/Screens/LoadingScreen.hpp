@@ -17,6 +17,9 @@ namespace game
 {
 	namespace screens
 	{
+		/**
+		 * Shows a loading graphic while loading all of the content for the game screen.
+		 */
 		class LoadingScreen : public IScreen
 		{
 		public:

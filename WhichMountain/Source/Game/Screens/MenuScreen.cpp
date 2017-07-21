@@ -5,6 +5,9 @@ namespace game
 {
 	namespace screens
 	{
+		/**
+		 * Create an instance of the class.
+		 */
 		MenuScreen::MenuScreen(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio) :
 			m_window(window),
 			m_input(input),
@@ -17,6 +20,9 @@ namespace game
 		{
 		}
 
+		/**
+		 * Called when the screen should update.
+		 */
 		void MenuScreen::Update(int elapsedTime)
 		{
 			m_startButton.Update(m_input);
@@ -25,6 +31,7 @@ namespace game
 
 			if (m_startButton.IsClicked())
 			{
+				// Switch to the game screen.
 				m_screens.Switch(game::screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			}
 
@@ -35,10 +42,14 @@ namespace game
 
 			if (m_exitButton.IsClicked())
 			{
+				// Exit game.
 				m_window.Close();
 			}
 		}
 
+		/**
+		 * Called when the screen should draw.
+		 */
 		void MenuScreen::Draw(int elapsedTime)
 		{
 			m_startButton.Draw();

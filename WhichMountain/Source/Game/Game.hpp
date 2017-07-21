@@ -10,6 +10,9 @@
 
 namespace game
 {
+	/**
+	 * Represents the main game class.
+	 */
 	class Game
 	{
 	public:
