@@ -57,6 +57,8 @@ namespace game
 			std::mt19937 m_random;
 
 			bool m_isGameOver;
+			int m_highscore;
+			int m_score;
 		};
 	}
 }

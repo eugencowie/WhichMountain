@@ -2,6 +2,7 @@
 #include "MenuScreen.hpp"
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <fstream>
 
 namespace game
 {
@@ -19,10 +20,24 @@ namespace game
 		m_player(content, input, audio),
 		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720}),
 		m_musicPlaying(false),
-		m_isGameOver(false)
+		m_isGameOver(false),
+		m_highscore(0),
+		m_score(0)
 	{
 		// Create the random number generator.
 		m_random.seed(std::random_device()());
+
+		// Load high score.
+		std::string line;
+		std::ifstream file("Highscore.txt");
+		if (file.is_open())
+		{
+			while (std::getline(file, line))
+			{
+				m_highscore = std::atoi(line.c_str());
+			}
+			file.close();
+		}
 	}
 
 	/**
@@ -32,6 +47,18 @@ namespace game
 	{
 		// Stop any playing audio.
 		m_audio.StopAll();
+
+		// Save high score.
+		if (m_score > m_highscore)
+		{
+			std::ofstream file;
+			file.open("Highscore.txt");
+			if (file.is_open())
+			{
+				file << m_score;
+				file.close();
+			}
+		}
 	}
 
 	/**
@@ -51,12 +78,24 @@ namespace game
 			if (m_input.IsKeyJustReleased(SDLK_RETURN))
 			{
 				// Really lazy way of restarting the game.
+				if (m_score > m_highscore)
+				{
+					std::ofstream file;
+					file.open("highscore.txt");
+					if (file.is_open())
+					{
+						file << m_score;
+						file.close();
+					}
+				}
 				m_screens.Switch(screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
 				return;
 			}
 		}
 		else
 		{
+			m_score += elapsedTime;
+
 			if (!m_musicPlaying)
 			{
 				// Start playing music.
