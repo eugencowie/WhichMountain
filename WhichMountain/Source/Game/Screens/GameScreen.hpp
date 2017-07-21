@@ -11,6 +11,7 @@
 #include "../../Engine/Sprite.hpp"
 #include "../../Engine/SpriteFont.hpp"
 #include "../Objects/Obstacle.hpp"
+#include "../Objects/Pickup.hpp"
 #include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
 
@@ -37,6 +38,7 @@ namespace game
 
 		private:
 			void SpawnObstacle();
+			void SpawnPickup();
 
 			Window& m_window;
 			InputManager& m_input;
@@ -47,6 +49,8 @@ namespace game
 			FollowCamera m_camera;
 
 			std::vector<std::shared_ptr<Obstacle>> m_obstacles;
+			std::vector<std::shared_ptr<Pickup>> m_pickups;
+
 			Ground m_ground;
 			Player m_player;
 

@@ -114,6 +114,9 @@ namespace game
 			// Spawn a new obstacle.
 			SpawnObstacle();
 
+			// Spawn a new pickup.
+			SpawnPickup();
+
 			// Obstacles
 			for (size_t i = m_obstacles.size(); i > 0; --i)
 			{
@@ -128,6 +131,25 @@ namespace game
 				{
 					m_obstacles[i-1] = m_obstacles[m_obstacles.size() - 1];
 					m_obstacles.pop_back();
+				}
+			}
+
+			// Pickups
+			for (size_t i = m_pickups.size(); i > 0; --i)
+			{
+				// Check if player has collided with obstacle.
+				if (m_player.GetBounds().Intersects(m_pickups[i-1]->GetBounds()))
+				{
+					m_player.SlowDown();
+					m_pickups[i-1] = m_pickups[m_pickups.size()-1];
+					m_pickups.pop_back();
+				}
+
+				// Remove obstacles which the player has passed.
+				if (m_pickups[i-1]->GetBounds().GetPosition().z > m_player.GetPosition().z + 10)
+				{
+					m_pickups[i-1] = m_pickups[m_pickups.size()-1];
+					m_pickups.pop_back();
 				}
 			}
 		}
@@ -146,6 +168,12 @@ namespace game
 
 		// Draw all of the obstacles.
 		for (auto it = m_obstacles.begin(); it != m_obstacles.end(); ++it)
+		{
+			(*it)->Draw(view, proj);
+		}
+
+		// Draw all of the pickups.
+		for (auto it = m_pickups.begin(); it != m_pickups.end(); ++it)
 		{
 			(*it)->Draw(view, proj);
 		}
@@ -201,5 +229,26 @@ namespace game
 		glm::vec3 spawnPos(playerPos.x + x, y, playerPos.z - z);
 
 		m_obstacles.push_back(std::make_shared<Obstacle>(m_content, spawnPos));
+	}
+
+	/**
+	 * Spawn a new pickup in a random position ahead of the player.
+	 */
+	void GameScreen::SpawnPickup()
+	{
+		static std::uniform_int_distribution<std::mt19937::result_type> dist(0, 500);
+
+		// 5% chance (25/500)
+		if (dist(m_random) < 25)
+		{
+			int x = dist(m_random) - 250; // range of -250 to 250
+			int y = 0;
+			int z = 100;
+
+			glm::vec3 playerPos = m_player.GetPosition();
+			glm::vec3 spawnPos(playerPos.x + x, y, playerPos.z - z);
+
+			m_pickups.push_back(std::make_shared<Pickup>(m_content, spawnPos));
+		}
 	}
 }
