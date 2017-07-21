@@ -13,7 +13,10 @@ namespace game
 			m_model(content.GetModel("Shaders/Textured", "Models/RetroRacer/RetroRacer.obj")),
 			m_velocity(0, 0, -0.25f),
 			m_state(State::GROUNDED),
-			m_targetStrafe(0)
+			m_targetStrafe(0),
+			m_slowDown(0),
+			m_speed(60),
+			m_speedCooldown(5000)
 		{
 		}
 
@@ -21,13 +24,23 @@ namespace game
 		{
 			// Speed
 
-			int speedMultipler = (int)(-m_position.z / 100);
-			if (speedMultipler > 20)
+			m_speedCooldown -= elapsedTime;
+			if (m_speedCooldown <= 0)
 			{
-				speedMultipler = 20;
+				m_speed += 10;
+				m_speedCooldown = 5000;
 			}
 
-			m_velocity.z = -0.25f - (0.25f * (speedMultipler * 0.5f));
+			/*if (speedMultiplier <= 1)
+			{
+				speedMultiplier = 1;
+			}
+			if (speedMultiplier <= m_slowDown)
+			{
+				m_slowDown = speedMultiplier - 1;
+			}*/
+
+			m_velocity.z = m_speed * -0.01f;
 
 			// Strafing
 
