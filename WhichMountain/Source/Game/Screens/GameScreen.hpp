@@ -9,6 +9,7 @@
 #include "../../Engine/AudioManager.hpp"
 #include "../../Engine/Camera.hpp"
 #include "../../Engine/Sprite.hpp"
+#include "../../Engine/SpriteFont.hpp"
 #include "../Objects/Obstacle.hpp"
 #include "../Objects/Ground.hpp"
 #include "../Objects/Player.hpp"
@@ -50,6 +51,10 @@ namespace game
 			Player m_player;
 
 			Sprite m_gameOver;
+
+			SpriteFont m_font;
+			Sprite m_scoreText;
+			Sprite m_speedText;
 
 			irrklang::ISound* m_bgMusic;
 			bool m_musicPlaying;

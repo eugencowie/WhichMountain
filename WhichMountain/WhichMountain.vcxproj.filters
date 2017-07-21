@@ -104,6 +104,9 @@
     <ClCompile Include="Source\Engine\AudioManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Engine\SpriteFont.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Game\Game.hpp">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="Source\Game\Screens\Helper.hpp">
       <Filter>Header Files\Game\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Engine\SpriteFont.hpp">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,6 +19,9 @@ namespace game
 		m_ground(content, 40),
 		m_player(content, input, audio),
 		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720}),
+		m_font(content, "Fonts/Font_", ".jpg", "0123456789"),
+		m_scoreText(content, "Shaders/Textured", "Textures/ScoreText.jpg", {1280,720}),
+		m_speedText(content, "Shaders/Textured", "Textures/SpeedText.jpg", {1280,720}),
 		m_musicPlaying(false),
 		m_isGameOver(false),
 		m_highscore(0),
@@ -106,7 +109,6 @@ namespace game
 			// Update player, camera, ground.
 			m_player.Update(elapsedTime);
 			m_camera.Update(m_player.GetPosition());
-
 			m_ground.Update(m_player.GetPosition());
 
 			// Spawn a new obstacle.
@@ -151,10 +153,31 @@ namespace game
 		// Draw the ground.
 		m_ground.Draw(view, proj);
 
+		// Draw score/highscore.
+		m_scoreText.Draw({20,20});
+
+		std::string highscoreText;
+		if (m_highscore / 1000 < 100) highscoreText += "0";
+		if (m_highscore / 1000 < 10) highscoreText += "0";
+		highscoreText += std::to_string(m_highscore / 1000);
+		m_font.DrawString(highscoreText.c_str(), glm::vec2(216, 20));
+
+		std::string scoreText;
+		if (m_score / 1000 < 100) scoreText += "0";
+		if (m_score / 1000 < 10) scoreText += "0";
+		scoreText += std::to_string(m_score / 1000);
+		m_font.DrawString(scoreText.c_str(), glm::vec2(216, 58));
+
 		if (!m_isGameOver)
 		{
 			// Draw player if game is not over.
 			m_player.Draw(view, proj);
+
+			// Draw speed multiplier if game is not over.
+			std::string speedText = std::to_string(m_player.GetSpeed());
+			m_font.DrawString(speedText.c_str(), glm::vec2(600, 20));
+
+			m_speedText.Draw({ 600 + (speedText.length() * 20), 20 });
 		}
 		else
 		{

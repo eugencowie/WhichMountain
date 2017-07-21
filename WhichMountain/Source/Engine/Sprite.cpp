@@ -19,9 +19,12 @@ namespace engine
 	{
 	}
 
-	void Sprite::Draw(glm::vec2 position)
+	void Sprite::Draw(glm::vec2 position, float layer)
 	{
 		glm::mat4 model;
+
+		// set mesh layer
+		model = glm::translate(model, glm::vec3(0, 0, layer));
 
 		// set mesh position
 		model = glm::translate(model, ToVec3(ToUnits(FlipY(position * 2.f))));
@@ -38,6 +41,10 @@ namespace engine
 		// scale mesh down to texture size
 		model = glm::scale(model, ToVec3(ToUnits(GetSize())));
 
-		m_mesh->Draw(model);
+		glm::mat4 view = glm::lookAt(glm::vec3(0, 0, 10), glm::vec3(), glm::vec3(0, 1, 0));
+
+		glm::mat4 proj = glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, 0.1f, 100.0f);
+
+		m_mesh->Draw(model, view, proj);
 	}
 }

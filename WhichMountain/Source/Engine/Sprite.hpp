@@ -17,7 +17,7 @@ namespace engine
 		Sprite(ShaderPtr shader, TexturePtr texture, glm::vec2 screen, glm::vec2 origin={});
 		Sprite(ContentManager& content, const char* shader, const char* texture, glm::vec2 screen, glm::vec2 origin={});
 
-		void Draw(glm::vec2 position);
+		void Draw(glm::vec2 position, float layer=0.0f);
 
 		glm::vec2 GetSize() const { return m_texture->GetSize(); }
 		glm::vec2 GetOffset() const { return GetSize() * m_origin; }
