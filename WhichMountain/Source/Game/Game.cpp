@@ -16,7 +16,7 @@ namespace game
 		m_window.VerticalSync(true);
 
 		// Set up OpenGL parameters.
-		glClearColor(0.39f, 0.58f, 0.93f, 1.0f);
+		glClearColor(0, 0, 0, 1);
 		glEnable(GL_DEPTH_TEST);
 		glEnable(GL_CULL_FACE);
 		glEnable(GL_MULTISAMPLE);
