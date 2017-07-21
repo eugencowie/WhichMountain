@@ -36,9 +36,13 @@ namespace game
 			AudioManager& m_audio;
 
 			Sprite m_background;
+			Sprite m_helpScreen;
+
 			Button m_startButton;
 			Button m_helpButton;
 			Button m_exitButton;
+
+			bool m_showHelp;
 		};
 	}
 }

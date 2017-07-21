@@ -15,9 +15,11 @@ namespace game
 			m_content(content),
 			m_audio(audio),
 			m_background(content, "Shaders/Textured", "Textures/MenuScreen.jpg", {1280,720}),
+			m_helpScreen(content, "Shaders/Textured", "Textures/HelpScreen.jpg", {1280,720}, {0.5f,0.5f}),
 			m_startButton(m_content, "Shaders/Textured", "Textures/Buttons/Start.png", "Textures/Buttons/StartHover.png", {440, 600}, {1280, 720}, {0.5f, 0.5f}),
 			m_helpButton(m_content, "Shaders/Textured", "Textures/Buttons/Help.png", "Textures/Buttons/HelpHover.png", {640, 600}, {1280, 720}, {0.5f, 0.5f}),
-			m_exitButton(m_content, "Shaders/Textured", "Textures/Buttons/Exit.png", "Textures/Buttons/ExitHover.png", {840, 600}, {1280, 720}, {0.5f, 0.5f})
+			m_exitButton(m_content, "Shaders/Textured", "Textures/Buttons/Exit.png", "Textures/Buttons/ExitHover.png", {840, 600}, {1280, 720}, {0.5f, 0.5f}),
+			m_showHelp(false)
 		{
 		}
 
@@ -38,7 +40,8 @@ namespace game
 
 			if (m_helpButton.IsClicked())
 			{
-				// TODO
+				// Toggle help.
+				m_showHelp = !m_showHelp;
 			}
 
 			if (m_exitButton.IsClicked())
@@ -58,6 +61,11 @@ namespace game
 			m_startButton.Draw();
 			m_helpButton.Draw();
 			m_exitButton.Draw();
+
+			if (m_showHelp)
+			{
+				m_helpScreen.Draw({640, 360});
+			}
 		}
 	}
 }
