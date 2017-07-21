@@ -21,33 +21,34 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{E8C357F6-FDCF-410D-8847-1616068ACB63}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
     <RootNamespace>WhichMountain</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -70,33 +71,39 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(ProjectDir)Build\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(ProjectDir)Build\obj\$(Configuration)\$(Platform)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(ProjectDir)Build\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(ProjectDir)Build\obj\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)Bin\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Obj\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(ProjectDir)Build\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(ProjectDir)Build\obj\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(ProjectDir)Bin\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Obj\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)Bin\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Obj\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(ProjectDir)Build\bin\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(ProjectDir)Build\obj\$(Configuration)\$(Platform)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)Bin\Win$(PlatformArchitecture)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)Obj\Win$(PlatformArchitecture)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
@@ -107,16 +114,18 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
@@ -128,18 +137,21 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
@@ -151,18 +163,21 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)Deps\sdl\include;$(ProjectDir)Deps\glew\include;$(ProjectDir)Deps\glm;$(ProjectDir)Deps\stb;$(ProjectDir)Deps\assimp\include;$(ProjectDir)Deps\irrklang\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(ProjectDir)Deps\sdl\lib\$(PlatformTarget);$(ProjectDir)Deps\glew\lib\Release\$(Platform);$(ProjectDir)Deps\assimp\lib\$(Platform);$(ProjectDir)Deps\irrklang\lib\Win$(PlatformArchitecture)-visualStudio;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;glew32.lib;glu32.lib;opengl32.lib;assimp.lib;irrKlang.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>xcopy /y "$(ProjectDir)Deps\sdl\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"
@@ -219,9 +234,7 @@ xcopy /y "$(ProjectDir)Deps\irrklang\bin\win$(PlatformArchitecture)-visualStudio
     <ClInclude Include="Source\Game\Screens\GameScreen.hpp" />
     <ClInclude Include="Source\Game\Screens\LoadingScreen.hpp" />
     <ClInclude Include="Source\Game\Screens\MenuScreen.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Source\Game\Screens\Helper.hpp" />
+    <ClInclude Include="Source\Game\Screens\Helper.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,8 @@
-Build/
+Bin/
+Obj/
 
 .vs/
+*.user
 *.suo
 *.sdf
 *.opensdf
