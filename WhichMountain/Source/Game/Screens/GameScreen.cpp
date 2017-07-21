@@ -28,7 +28,7 @@ namespace game
 	{
 		if (m_input.IsKeyJustReleased(SDLK_ESCAPE))
 		{
-			m_screens.Switch(game::screens::Create<MenuScreen>(m_window, m_input, m_screens, m_content, m_audio));
+			m_screens.Switch(screens::Create<MenuScreen>(m_window, m_input, m_screens, m_content, m_audio));
 			return;
 		}
 
@@ -37,7 +37,7 @@ namespace game
 			if (m_input.IsKeyJustReleased(SDLK_RETURN))
 			{
 				// really lazy way of restarting the game
-				m_screens.Switch(game::screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
+				m_screens.Switch(screens::Create<GameScreen>(m_window, m_input, m_screens, m_content, m_audio));
 				return;
 			}
 		}
@@ -45,7 +45,7 @@ namespace game
 		{
 			if (!m_musicPlaying)
 			{
-				m_bgMusic = m_audio.PlaySound("../../../../Content/Audio/Killers.ogg", true);
+				m_bgMusic = m_audio.PlaySound("Content/Audio/Killers.ogg", true);
 				m_musicPlaying = true;
 			}
 

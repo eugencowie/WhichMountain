@@ -14,7 +14,6 @@ namespace engine
 	class ContentManager
 	{
 	public:
-		ContentManager(const char* baseDir, const char* debugBaseDir);
 		explicit ContentManager(const char* baseDir);
 
 		ShaderPtr GetShader(std::string vertexPath, std::string fragmentPath);

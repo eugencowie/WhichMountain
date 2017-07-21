@@ -11,9 +11,9 @@ namespace game
 			m_screens(screens),
 			m_content(content),
 			m_audio(audio),
-			m_startButton(m_content, "Shaders/Textured", "Textures/Menu/Buttons/Start.png", "Textures/Menu/Buttons/StartHover.png", {640, 400}, {1280, 720}, {0.5f, 0.5f}),
-			m_helpButton(m_content, "Shaders/Textured", "Textures/Menu/Buttons/Help.png", "Textures/Menu/Buttons/HelpHover.png", {640, 500}, {1280, 720}, {0.5f, 0.5f}),
-			m_exitButton(m_content, "Shaders/Textured", "Textures/Menu/Buttons/Exit.png", "Textures/Menu/Buttons/ExitHover.png", {640, 600}, {1280, 720}, {0.5f, 0.5f})
+			m_startButton(m_content, "Shaders/Textured", "Textures/Buttons/Start.png", "Textures/Buttons/StartHover.png", {440, 600}, {1280, 720}, {0.5f, 0.5f}),
+			m_helpButton(m_content, "Shaders/Textured", "Textures/Buttons/Help.png", "Textures/Buttons/HelpHover.png", {640, 600}, {1280, 720}, {0.5f, 0.5f}),
+			m_exitButton(m_content, "Shaders/Textured", "Textures/Buttons/Exit.png", "Textures/Buttons/ExitHover.png", {840, 600}, {1280, 720}, {0.5f, 0.5f})
 		{
 		}
 

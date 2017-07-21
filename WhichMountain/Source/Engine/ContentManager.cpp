@@ -2,19 +2,9 @@
 
 namespace engine
 {
-	ContentManager::ContentManager(const char* baseDir, const char* debugBaseDir) :
-#ifdef _DEBUG
-		ContentManager(debugBaseDir)
-#else
-		ContentManager(baseDir)
-#endif
+	ContentManager::ContentManager(const char* baseDir) :
+		m_baseDir(baseDir)
 	{
-	}
-
-	ContentManager::ContentManager(const char* baseDir)
-	{
-		m_baseDir = baseDir;
-
 		if (m_baseDir[m_baseDir.length() - 1] != '/')
 		{
 			m_baseDir += "/";

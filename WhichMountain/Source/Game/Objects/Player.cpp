@@ -52,7 +52,7 @@ namespace game
 				{
 					m_velocity.y = jumpSpd;
 					m_state = State::JUMPING;
-					m_audio.PlaySound("../../../../Content/Audio/Jump.wav");
+					m_audio.PlaySound("Content/Audio/Jump.wav");
 				}
 			}
 			else if (m_state == State::JUMPING)

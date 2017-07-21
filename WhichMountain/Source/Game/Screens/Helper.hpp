@@ -9,7 +9,7 @@ namespace game
 	namespace screens
 	{
 		template<typename T>
-		static IScreenPtr Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio)
+		static std::unique_ptr<T> Create(Window& window, InputManager& input, ScreenManager& screens, ContentManager& content, AudioManager& audio)
 		{
 			return std::make_unique<T>(window, input, screens, content, audio);
 		};
