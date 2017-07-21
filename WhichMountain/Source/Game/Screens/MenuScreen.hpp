@@ -7,6 +7,7 @@
 #include "../../Engine/ScreenManager.hpp"
 #include "../../Engine/ContentManager.hpp"
 #include "../../Engine/AudioManager.hpp"
+#include "../../Engine/Sprite.hpp"
 #include "../../Engine/Button.hpp"
 
 #include "Helper.hpp"
@@ -34,6 +35,7 @@ namespace game
 			ContentManager& m_content;
 			AudioManager& m_audio;
 
+			Sprite m_background;
 			Button m_startButton;
 			Button m_helpButton;
 			Button m_exitButton;
