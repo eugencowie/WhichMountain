@@ -83,7 +83,7 @@ namespace game
 
 			// Update if it has been more than 16ms.
 			timeSinceUpdate += elapsedTime;
-			while (timeSinceUpdate >= UPDATE_FREQ)
+			while (timeSinceUpdate >= UPDATE_FREQ && !m_window.ShouldClose())
 			{
 				timeSinceUpdate -= UPDATE_FREQ;
 				Update(UPDATE_FREQ);

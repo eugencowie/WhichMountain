@@ -17,7 +17,9 @@ namespace game
 		m_camera({0,1.5f,5}),
 		m_ground(content, 40),
 		m_player(content, input, audio),
-		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720})
+		m_gameOver(content, "Shaders/Textured", "Textures/GameOver.png", {1280,720}),
+		m_musicPlaying(false),
+		m_isGameOver(false)
 	{
 		// Create the random number generator.
 		m_random.seed(std::random_device()());

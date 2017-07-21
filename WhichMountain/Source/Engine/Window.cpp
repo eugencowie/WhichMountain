@@ -5,7 +5,8 @@
 
 namespace engine
 {
-	Window::Window(const char* title, int width, int height)
+	Window::Window(const char* title, int width, int height) :
+		m_shouldClose(false)
 	{
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
 		SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -42,8 +43,6 @@ namespace engine
 			assert(false && "OpenGL version does not meet requirements");
 			std::exit(EXIT_FAILURE);
 		}
-
-		m_shouldClose = false;
 	}
 
 	Window::~Window()

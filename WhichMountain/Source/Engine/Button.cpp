@@ -6,6 +6,7 @@ namespace engine
 		m_sprite(sprite),
 		m_hover(hover),
 		m_bounds(position - m_sprite.GetOffset(), sprite.GetSize()),
+		m_hovering(false),
 		m_state(ButtonState::NOT_PRESSED)
 	{
 	}
