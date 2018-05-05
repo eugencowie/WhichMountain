@@ -1,4 +1,4 @@
-Retro Racer (for Wavefront OBJ) 
+Retro Racer (for Wavefront OBJ)
 c 2013 Vanishing Point
 
 All of this product's content was created by Sparkyworld. Uploaded for sale here with permission.
@@ -25,6 +25,6 @@ Notes:
 Usage License:
 You are completely free to use this figure in any commercial or non-commercial render, image, or animation.
 You may NOT sell or give away any files found in this zip package without express permission.
-You are free to redistribute your own textures as you wish, provided they do not use any images found in this zip file. 
+You are free to redistribute your own textures as you wish, provided they do not use any images found in this zip file.
 
 -----------------------------------
