@@ -10,6 +10,7 @@ namespace engine
 	{
 	public:
 		Camera(glm::vec3 position={0,0,-10}, glm::vec3 target={0,0,0}, glm::vec3 up={0,1,0});
+		virtual ~Camera() = default;
 
 		glm::mat4 GetMatrix() const;
 
